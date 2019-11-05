@@ -1,0 +1,503 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="demoTable">
+  车间：
+  <div class="layui-inline">
+    <input class="layui-input" name="id" id="demoReload1" autocomplete="off">
+  </div>
+  工段：
+  <div class="layui-inline">
+    <input class="layui-input" name="id" id="demoReload2" autocomplete="off">
+  </div>
+  班组：
+  <div class="layui-inline">
+    <input class="layui-input" name="id" id="demoReload3" autocomplete="off">
+  </div>
+  层级：
+  <div class="layui-inline">
+    <input class="layui-input" name="id" id="demoReload4" autocomplete="off">
+  </div>
+  班次：
+  <div class="layui-inline">
+    <input class="layui-input" name="id" id="demoReload5" autocomplete="off">
+  </div>
+  <br> <br>
+  工位：
+  <div class="layui-inline">
+    <input class="layui-input" name="id" id="demoReload6" autocomplete="off">
+  </div>
+  
+  计划：
+  <div class="layui-inline">
+    <input class="layui-input" name="id" id="demoReload7" autocomplete="off" placeholder="YYYY-MM-DD">
+  </div>
+
+  <button class="layui-btn" data-type="reload">搜索</button>
+  <button id="downtemplates" class="layui-btn layui-btn-normal">模板下载</button>
+  <button type="button" class="layui-btn" id="uploaditem">
+    <i class="layui-icon">&#xe67c;</i>导入
+  </button>
+</div>
+
+
+<table class="layui-hide" id="test" lay-filter="test"></table>
+
+<script type="text/html" id="toolbarDemo">
+  <div class="layui-btn-container">
+    <button class="layui-btn layui-btn-sm" lay-event="getCheckData">批量删除</button>
+    <button class="layui-btn layui-btn-sm" lay-event="add">新增数据</button>
+
+    <!-- <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+          <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button> -->
+  </div>
+</script>
+
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+
+<script>
+  layui.use(['table', 'laydate', 'upload','form'], function () {
+    var $ = layui.jquery
+    var table = layui.table;
+    var laydate = layui.laydate;
+    var upload = layui.upload;
+  var form=layui.form;
+    laydate.render({
+      elem: '#demoReload7'
+    });
+    table.render({
+      elem: '#test',
+      url: '/items_pc_api/',
+      toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+        ,
+      defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+        title: '提示',
+        layEvent: 'LAYTABLE_TIPS',
+        icon: 'layui-icon-tips'
+      }],
+      title: '点检计划表',
+      cols: [
+        [{
+            type: 'checkbox',
+            fixed: 'left'
+          }, {
+            field: 'id',
+            title: 'ID',
+            width: 50,
+            hide: true,
+            unresize: true,
+            sort: true
+          }, {
+
+            title: '序号',
+            width: 80,
+            type: 'numbers',
+            unresize: true,
+            sort: true
+          },
+          {
+            field: 'workshop',
+            title: '车间',
+            sort: true
+          }, {
+            field: 'worksection',
+            title: '工段',
+            sort: true
+          }, {
+            field: 'team',
+            title: '班组',
+            sort: true
+          }, {
+            field: 'level',
+            title: '层级',
+            sort: true
+          }, {
+            field: 'shift',
+            title: '班次',
+            sort: true
+          }, {
+            field: 'uloc',
+            title: '工位',
+            sort: true
+          }, {
+            field: 'date',
+            title: '计划点检日',
+            sort: true
+          }, {
+            field: 'title',
+            title: '检查项',
+            sort: true
+          }, {
+            fixed: 'right',
+            title: '操作',
+            toolbar: '#barDemo',
+            width: 120
+          }
+        ]
+      ],
+      page: true,
+      limit: 15,
+      limits: [20, 40, 60, 100],
+      even: true,
+      size: 'sm',
+      id: 'testReload'
+    });
+
+    //查询重载
+    var $ = layui.$,
+      active = {
+        reload: function () {
+          var workshop = $('#demoReload1');
+          var worksection = $('#demoReload2');
+          var team = $('#demoReload3');
+          var level = $('#demoReload4');
+          var shift = $('#demoReload5');
+          var uloc = $('#demoReload6');
+          var date = $('#demoReload7');
+          //执行重载
+          table.reload('testReload', {
+            page: {
+              curr: 1 //重新从第 1 页开始
+            },
+            where: {
+              workshop: workshop.val(),
+              worksection: worksection.val(),
+              team: team.val(),
+              level: level.val(),
+              shift: shift.val(),
+              uloc: uloc.val(),
+              date: date.val(),
+
+            }
+          }, 'data');
+        }
+      };
+
+    $('.demoTable .layui-btn').on('click', function () {
+      var type = $(this).data('type');
+      active[type] ? active[type].call(this) : '';
+    });
+
+    //下载模板
+    $('#downtemplates').on('click', function () {
+      console.log('!!!!!!!');
+      window.location = '/item_templates_download/';
+
+
+    });
+    //文件导入
+    upload.render({
+      elem: '#uploaditem',
+      url: '/item_upload_file/',
+      accept: 'file' //普通文件
+        ,
+      field: 'myfile',
+      exts: 'xlsx|xls',
+      before: function (obj) { //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+        layer.load(); //上传loading
+      },
+      done: function (res) {
+        layer.closeAll('loading'); //关闭loading
+        window.location.reload();
+      }
+    });
+
+
+
+    //头工具栏事件
+    table.on('toolbar(test)', function (obj) {
+      var checkStatus = table.checkStatus(obj.config.id);
+      switch (obj.event) {
+        case 'getCheckData':
+          var data = checkStatus.data;
+          layer.confirm('是否确认删除', function (index) {
+            $.ajax({
+              url: "/item_delete_api/",
+              type: "POST",
+              data: {
+                data: JSON.stringify(data)
+              }
+            })
+
+            layer.close(index)
+          })
+          break;
+        case 'getCheckLength':
+          var data = checkStatus.data;
+          layer.msg('选中了：' + data.length + ' 个');
+          break;
+        case 'isAll':
+          layer.msg(checkStatus.isAll ? '全选' : '未全选');
+          break;
+
+          //自定义头工具栏右侧图标 - 提示
+        case 'LAYTABLE_TIPS':
+          layer.alert('这是工具栏右侧自定义的一个图标按钮');
+          break;
+        case 'add':
+          layer.open({
+            type: 1,
+            title: "新增数据",
+            area: ['600px', '600px'],
+            content: $("#popUpdateTest").html(),
+
+          });
+
+          //提交数据
+          form.on('submit(edit)', function (data) {
+          data = data.field;
+          console.log(data);
+          $.ajax({
+            url: '/edit_item_api/',
+            data: {
+              id: data.id,
+              workshop: data.workshop,
+              worksection: data.worksection,
+              team: data.team,
+              level: data.level,
+              shift: data.uloc,
+              uloc: data.workshop,
+              date: data.date,
+              title: data.title,
+            },
+            type: 'POST',
+            dataType: 'json',
+            timeout: 5000,
+            success: function (data) {
+              if (data.res == 'ok') {
+                layer.msg('新增成功', {
+                  time: 1000
+                }, function () {
+                  window.location = '/items/';
+                });
+              }
+
+
+            },
+            error: function (xhr, type, errorThrown) {
+              layer.msg('新增失败，请检查数据');
+              console.log(type);
+            }
+          });
+          return false;
+
+
+
+        });
+
+
+
+
+      };
+    });
+
+    //监听行工具事件
+    table.on('tool(test)', function (obj) {
+      var data = obj.data;
+      //console.log(obj)
+      if (obj.event === 'del') {
+        layer.confirm('是否确认删除', function (index) {
+          $.ajax({
+            url: "/item_delete_api/",
+            type: "POST",
+            data: {
+              id: data.id
+            }
+          });
+
+          obj.del();
+          layer.close(index);
+        });
+      } else if (obj.event === 'edit') {
+        layer.open({
+          type: 1,
+          title: "编辑数据",
+          area: ['700px', '700px'],
+          content: $("#popUpdateTest").html(),
+
+
+        });
+        // 打开表单并赋值
+ 
+          // 日期格式常规用法
+          // laydate.render({
+          //   elem: '#date11',
+          // });
+          //表单初始赋值
+          form.val('example', {
+            "id": data.id,
+            "workshop": data.workshop // "name": "value"
+              ,
+            "worksection": data.worksection,
+            "team": data.team,
+            "level": data.level //复选框选中状态
+              ,
+            "shift": data.shift //开关状态
+              ,
+            "uloc": data.uloc,
+            "date": data.date,
+            "title": data.title,
+
+          });
+          //提交数据
+          form.on('submit(edit)', function (data) {
+          data = data.field;
+          console.log(data);
+          $.ajax({
+            url: '/edit_item_api/',
+            data: {
+              id: data.id,
+              workshop: data.workshop,
+              worksection: data.worksection,
+              team: data.team,
+              level: data.level,
+              shift: data.uloc,
+              uloc: data.workshop,
+              date: data.date,
+              title: data.title,
+            },
+            type: 'POST',
+            dataType: 'json',
+            timeout: 5000,
+            success: function (data) {
+              if (data.res == 'ok') {
+                layer.msg('修改成功', {
+                  time: 1000
+                }, function () {
+                  window.location = '/items/';
+                });
+              }
+
+
+            },
+            error: function (xhr, type, errorThrown) {
+              layer.msg('修改失败，请检查数据');
+              console.log(type);
+            }
+          });
+          return false;
+
+
+
+        });
+
+      }
+    });
+  });
+</script>
+
+
+
+<!-- 编辑数据 -->
+<div class="layui-row" id="popUpdateTest" style="display:none;">
+
+
+  <form class="layui-form " lay-filter="example" id="form">
+
+    <div class="layui-form-item" style="display: none">
+
+      <label class="layui-form-label">ID:</label>
+
+      <div class="layui-input-block">
+        <input id="id" type="text" name="id" lay-verify="title" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+
+
+    <div class="layui-form-item">
+      <label class="layui-form-label">车间</label>
+
+      <div class="layui-input-block">
+        <select name="workshop" lay-verify="required">
+          <option value="BS1">BS1</option>
+          <option value="PS1">PS1</option>
+          <option value="GA1">GA1</option>
+        </select>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">工段</label>
+
+      <div class="layui-input-block">
+        <input id="worksection" type="text" name="worksection" lay-verify="title" autocomplete="off" placeholder="请输入"
+          class="layui-input">
+      </div>
+    </div>
+
+    <div class="layui-form-item">
+      <label class="layui-form-label">班组</label>
+      <div class="layui-input-block">
+        <input type="text" name="team"  placeholder="请输入" autocomplete="off" class="layui-input"
+          id="name">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">层级</label>
+      <div class="layui-input-block">
+        <select name="level" lay-verify="required">
+          <option value="班组长">班组长</option>
+          <option value="工段长">工段长</option>
+          <option value="生产经理">生产经理</option>
+        </select>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">班次</label>
+      <div class="layui-input-block">
+        <select name="shift" lay-verify="required">
+          <option value="A">A班</option>
+          <option value="B">B班</option>
+        </select>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">工位</label>
+      <div class="layui-input-block">
+        <input id="team" type="text" name="uloc" placeholder="请输入" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">计划点检日</label>
+      <div class="layui-input-block">
+        <input id="date11" type="text" name="date" placeholder="请输入" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">检查项</label>
+      <div class="layui-input-block">
+        <input id="level" type="text" name="title" placeholder="请输入" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+
+
+    <div class="layui-form-item" style="margin-top:40px">
+      <div class="layui-input-block">
+        <button id='edit2' class="layui-btn  layui-btn-submit " lay-submit="" lay-filter="edit">确认</button>
+        <button id="cz" type="reset" class="layui-btn layui-btn-primary">重置</button>
+
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

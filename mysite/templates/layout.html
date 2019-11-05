@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    #lay {
+        background-image: url('/static/images/timg2.jpg');
+        background-repeat: no-repeat;
+        /* background-size: 100% 100%; */
+        position: absolute;
+        height: 722px;
+        width: 1500px;
+        left: 80px;
+        top: 80px;
+    }
+</style>
+<div id="app">
+    <div id='lay'>
+
+    </div>
+
+    <!-- <div class=T1red v-if="display"> </div> -->
+    <!-- <div v-for='i in red' :class="{red1:i.worksection=='1T1',green:i.worksection=='1T2' }"></div> -->
+
+
+    <!-- <div v-for='i in red' :class="{T1T1:i.worksection=='1T1',green22:i.worksection=='1T2' }"></div> -->
+    <div v-for='i in status'>
+        <div v-if="i.team=='T1' && i.worksection=='1T1' && i.team_status=='red' " class='T1T1'> </div>
+        <div v-else-if="i.team=='T1' && i.worksection=='1T1' && i.team_status=='yellow' " class="yellow" ></div>
+
+    </div>
+</div>
+
+
+
+
+
+
+    <div class=green></div>
+    <!-- <div class=green2></div>
+    <div class=yellow></div> -->
+
+
+<!-- 内饰一T1 -->
+<!-- <div class=T1T1>T1</div> -->
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        var app = new Vue({
+            el: '#app',
+            data: {
+                status: '',
+                green: false,
+                display: 'true',
+            },
+            created() {
+
+                setInterval(function () {
+                    $.ajax({
+                        url: '/layout_res_api/',
+                        data: {
+
+                        },
+                        dataType: 'json',
+                        type: 'post',
+                        success: function (res) {
+                            console.log(res);
+                            app.status = res.res;
+                            
+
+                        },
+                        error: function (xhr, type, errorThrown) {
+                            console.log(type)
+                        }
+
+
+                    });
+                }, 5000)
+                setInterval(function () {
+                    //left=200px(原始位置)-width/2
+                    //top=200px(原始位置)-height/2
+                    //内饰一T1班组
+
+                    $(".T1T1").animate({
+                        width: "40px",
+                        height: "40px",
+                        left: "1350px",
+                        top: "345px",
+                    }, 500);
+                    $(".T1T1").animate({
+                        width: "12px",
+                        height: "12px",
+                        left: "1352.5px",
+                        top: "350px",
+                    }, 500);
+
+
+
+
+
+
+
+
+                    $(".T1red").animate({
+                        width: "60px",
+                        height: "60px",
+                        left: "220px",
+                        top: "220px",
+                    }, 500);
+                    $(".T1red").animate({
+                        width: "20px",
+                        height: "20px",
+                        left: "240px",
+                        top: "240px",
+                    }, 500);
+
+
+                    $(".red1").animate({
+                        width: "60px",
+                        height: "60px",
+                        left: "520px",
+                        top: "220px",
+                    }, 500);
+                    $(".red1").animate({
+                        width: "20px",
+                        height: "20px",
+                        left: "540px",
+                        top: "240px",
+                    }, 500);
+
+                    $(".yellow").animate({
+                        width: "60px",
+                        height: "60px",
+                        left: "370px",
+                        top: "270px",
+                    }, 500);
+                    $(".yellow").animate({
+                        width: "20px",
+                        height: "20px",
+                        left: "390px",
+                        top: "290px",
+                    }, 500);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                }, 1000);
+
+            },
+
+        })
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

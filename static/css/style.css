@@ -1,0 +1,65 @@
+
+.T1red {
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.red1 {
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.green {
+    position: absolute;
+    background-color: green;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    left: 270px;
+    top: 270px;
+}
+
+.green2 {
+    position: absolute;
+    background-color: green;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    left: 470px;
+    top: 270px;
+}
+
+.yellow {
+    position: absolute;
+    background-color: yellow;
+    border-radius: 20%;
+}
+
+.red11 {
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    left: 370px;
+    top: 370px;
+}
+
+.green22 {
+    position: absolute;
+    background-color: green;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    left: 370px;
+    top: 370px;
+}
+
+.T1T1{
+    position: absolute;
+    background-color: red;
+    border-radius: 80%;
+  
+}
