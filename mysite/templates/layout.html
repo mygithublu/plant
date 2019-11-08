@@ -17,31 +17,39 @@
     <div id='lay'>
 
     </div>
+    <!-- 底盘四 -->
 
-    <!-- <div class=T1red v-if="display"> </div> -->
-    <!-- <div v-for='i in red' :class="{red1:i.worksection=='1T1',green:i.worksection=='1T2' }"></div> -->
-
-
-    <!-- <div v-for='i in red' :class="{T1T1:i.worksection=='1T1',green22:i.worksection=='1T2' }"></div> -->
-    <div v-for='i in status'>
-        <div v-if="i.team=='T1' && i.worksection=='1T1' && i.team_status=='red' " class='T1T1'> </div>
-        <div v-else-if="i.team=='T1' && i.worksection=='1T1' && i.team_status=='yellow' " class="yellow" ></div>
-
+    <div v-for='i in status' :class="{C4T1red:(i.team=='T1' && i.worksection=='1C4' && i.team_status=='red'),
+        C4T1yellow:(i.team=='T1' && i.worksection=='1C4' && i.team_status=='yellow'),
+        C4T1grren:(i.team=='T1' && i.worksection=='1C4' && i.team_status=='green') }">
     </div>
+
+    <div v-for='i in status' :class="{C4T2red:(i.team=='T2' && i.worksection=='1C4' && i.team_status=='red'),
+    C4T2yellow:(i.team=='T2' && i.worksection=='1C4' && i.team_status=='yellow'),
+    C4T2grren:(i.team=='T2' && i.worksection=='1C4' && i.team_status=='green') }">
+    </div>
+
+    <div v-for='i in status' :class="{C4T3red:(i.team=='T3' && i.worksection=='1C4' && i.team_status=='red'),
+    C4T3yellow:(i.team=='T3' && i.worksection=='1C4' && i.team_status=='yellow'),
+    C4T3grren:(i.team=='T3' && i.worksection=='1C4' && i.team_status=='green') }">
+    </div>
+
+    <div v-for='i in status' :class="{C4T4red:(i.team=='T4' && i.worksection=='1C4' && i.team_status=='red'),
+    C4T4yellow:(i.team=='T4' && i.worksection=='1C4' && i.team_status=='yellow'),
+    C4T4grren:(i.team=='T4' && i.worksection=='1C4' && i.team_status=='green') }">
+    </div>
+
+    <div v-for='i in status' :class="{C4T5red:(i.team=='T5' && i.worksection=='1C4' && i.team_status=='red'),
+    C4T5yellow:(i.team=='T5' && i.worksection=='1C4' && i.team_status=='yellow'),
+    C4T5grren:(i.team=='T5' && i.worksection=='1C4' && i.team_status=='green') }">
+    </div>
+
+
+
+
+
+
 </div>
-
-
-
-
-
-
-    <div class=green></div>
-    <!-- <div class=green2></div>
-    <div class=yellow></div> -->
-
-
-<!-- 内饰一T1 -->
-<!-- <div class=T1T1>T1</div> -->
 
 </div>
 
@@ -65,9 +73,9 @@
                         dataType: 'json',
                         type: 'post',
                         success: function (res) {
-                            console.log(res);
+                            console.log(res.res);
                             app.status = res.res;
-                            
+
 
                         },
                         error: function (xhr, type, errorThrown) {
@@ -76,7 +84,7 @@
 
 
                     });
-                }, 5000)
+                }, 2000)
                 setInterval(function () {
                     //left=200px(原始位置)-width/2
                     //top=200px(原始位置)-height/2
@@ -87,66 +95,195 @@
                         height: "40px",
                         left: "1350px",
                         top: "345px",
+                        opacity: 0.5
+
                     }, 500);
                     $(".T1T1").animate({
                         width: "12px",
                         height: "12px",
                         left: "1352.5px",
                         top: "350px",
+                        opacity: 0.5,
+
+                    }, 500);
+
+                    //底盘四T1班组
+
+                    $(".C4T1red").animate({
+                        width: "40px",
+                        height: "40px",
+                        left: "510px",
+                        top: "76px",
+                        opacity: 0.5
+
+                    }, 500);
+                    $(".C4T1red").animate({
+                        width: "12px",
+                        height: "12px",
+                        left: "524px",
+                        top: "90px",
+                        opacity: 0.5,
+
+                    }, 500);
+
+                    $(".C4T1yellow").animate({
+                        width: "40px",
+                        height: "40px",
+                        left: "510px",
+                        top: "76px",
+                        opacity: 0.5
+
+                    }, 500);
+                    $(".C4T1yellow").animate({
+                        width: "12px",
+                        height: "12px",
+                        left: "524px",
+                        top: "90px",
+                        opacity: 0.5,
+
+                    }, 500);
+
+                    //底盘四T2班组
+                    $(".C4T2red").animate({
+                        width: "40px",
+                        height: "40px",
+                        left: "610px",
+                        top: "76px",
+                        opacity: 0.5
+
+                    }, 500);
+                    $(".C4T2red").animate({
+                        width: "12px",
+                        height: "12px",
+                        left: "624px",
+                        top: "90px",
+                        opacity: 0.5,
+
+                    }, 500);
+
+                    $(".C4T2yellow").animate({
+                        width: "40px",
+                        height: "40px",
+                        left: "610px",
+                        top: "76px",
+                        opacity: 0.5
+
+                    }, 500);
+                    $(".C4T2yellow").animate({
+                        width: "12px",
+                        height: "12px",
+                        left: "624px",
+                        top: "90px",
+                        opacity: 0.5,
+
                     }, 500);
 
 
 
+                    //底盘四T3班组
+                    $(".C4T3red").animate({
+                        width: "40px",
+                        height: "40px",
+                        left: "710px",
+                        top: "76px",
+                        opacity: 0.5
 
-
-
-
-
-                    $(".T1red").animate({
-                        width: "60px",
-                        height: "60px",
-                        left: "220px",
-                        top: "220px",
                     }, 500);
-                    $(".T1red").animate({
-                        width: "20px",
-                        height: "20px",
-                        left: "240px",
-                        top: "240px",
-                    }, 500);
+                    $(".C4T3red").animate({
+                        width: "12px",
+                        height: "12px",
+                        left: "724px",
+                        top: "90px",
+                        opacity: 0.5,
 
-
-                    $(".red1").animate({
-                        width: "60px",
-                        height: "60px",
-                        left: "520px",
-                        top: "220px",
-                    }, 500);
-                    $(".red1").animate({
-                        width: "20px",
-                        height: "20px",
-                        left: "540px",
-                        top: "240px",
                     }, 500);
 
-                    $(".yellow").animate({
-                        width: "60px",
-                        height: "60px",
-                        left: "370px",
-                        top: "270px",
+                    $(".C4T3yellow").animate({
+                        width: "40px",
+                        height: "40px",
+                        left: "710px",
+                        top: "76px",
+                        opacity: 0.5
+
                     }, 500);
-                    $(".yellow").animate({
-                        width: "20px",
-                        height: "20px",
-                        left: "390px",
-                        top: "290px",
+                    $(".C4T3yellow").animate({
+                        width: "12px",
+                        height: "12px",
+                        left: "724px",
+                        top: "90px",
+                        opacity: 0.5,
+
                     }, 500);
 
+                    //底盘四T4班组
+                    $(".C4T4red").animate({
+                        width: "40px",
+                        height: "40px",
+                        left: "810px",
+                        top: "76px",
+                        opacity: 0.5
 
+                    }, 500);
+                    $(".C4T4red").animate({
+                        width: "12px",
+                        height: "12px",
+                        left: "824px",
+                        top: "90px",
+                        opacity: 0.5,
 
+                    }, 500);
 
+                    $(".C4T4yellow").animate({
+                        width: "40px",
+                        height: "40px",
+                        left: "810px",
+                        top: "76px",
+                        opacity: 0.5
 
+                    }, 500);
+                    $(".C4T4yellow").animate({
+                        width: "12px",
+                        height: "12px",
+                        left: "824px",
+                        top: "90px",
+                        opacity: 0.5,
 
+                    }, 500);
+
+                    //底盘四T5班组
+                    $(".C4T5red").animate({
+                        width: "40px",
+                        height: "40px",
+                        left: "910px",
+                        top: "76px",
+                        opacity: 0.5
+
+                    }, 500);
+                    $(".C4T5red").animate({
+                        width: "12px",
+                        height: "12px",
+                        left: "924px",
+                        top: "90px",
+                        opacity: 0.5,
+
+                    }, 500);
+
+                    $(".C4T5yellow").animate({
+                        width: "40px",
+                        height: "40px",
+                        left: "910px",
+                        top: "76px",
+                        opacity: 0.5
+
+                    }, 500);
+                    $(".C4T5yellow").animate({
+                        width: "12px",
+                        height: "12px",
+                        left: "924px",
+                        top: "90px",
+                        opacity: 0.5,
+
+                    }, 500);
 
 
 

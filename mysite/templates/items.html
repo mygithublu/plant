@@ -29,11 +29,7 @@
   <div class="layui-inline">
     <input class="layui-input" name="id" id="demoReload6" autocomplete="off">
   </div>
-  
-  计划：
-  <div class="layui-inline">
-    <input class="layui-input" name="id" id="demoReload7" autocomplete="off" placeholder="YYYY-MM-DD">
-  </div>
+
 
   <button class="layui-btn" data-type="reload">搜索</button>
   <button id="downtemplates" class="layui-btn layui-btn-normal">模板下载</button>
@@ -62,15 +58,13 @@
 
 
 <script>
-  layui.use(['table', 'laydate', 'upload','form'], function () {
+  layui.use(['table', 'laydate', 'upload', 'form'], function () {
     var $ = layui.jquery
     var table = layui.table;
     var laydate = layui.laydate;
     var upload = layui.upload;
-  var form=layui.form;
-    laydate.render({
-      elem: '#demoReload7'
-    });
+    var form = layui.form;
+
     table.render({
       elem: '#test',
       url: '/items_pc_api/',
@@ -126,10 +120,6 @@
             title: '工位',
             sort: true
           }, {
-            field: 'date',
-            title: '计划点检日',
-            sort: true
-          }, {
             field: 'title',
             title: '检查项',
             sort: true
@@ -159,7 +149,7 @@
           var level = $('#demoReload4');
           var shift = $('#demoReload5');
           var uloc = $('#demoReload6');
-          var date = $('#demoReload7');
+
           //执行重载
           table.reload('testReload', {
             page: {
@@ -172,7 +162,7 @@
               level: level.val(),
               shift: shift.val(),
               uloc: uloc.val(),
-              date: date.val(),
+
 
             }
           }, 'data');
@@ -222,8 +212,28 @@
               type: "POST",
               data: {
                 data: JSON.stringify(data)
+              },
+              type: 'POST',
+              dataType: 'json',
+              timeout: 5000,
+              success: function (data) {
+                if (data.res == 'ok') {
+                  layer.msg('删除成功', {
+                    time: 1000
+                  }, function () {
+                    layer.close(index)
+                    window.location = '/items/';
+                  });
+                }
+
+
+              },
+              error: function (xhr, type, errorThrown) {
+                layer.msg('删除');
+                console.log(type);
               }
-            })
+
+            });
 
             layer.close(index)
           })
@@ -245,51 +255,51 @@
             type: 1,
             title: "新增数据",
             area: ['600px', '600px'],
-            content: $("#popUpdateTest").html(),
+            content: $("#adddateid").html(),
 
           });
+          form.render();
 
           //提交数据
-          form.on('submit(edit)', function (data) {
-          data = data.field;
-          console.log(data);
-          $.ajax({
-            url: '/edit_item_api/',
-            data: {
-              id: data.id,
-              workshop: data.workshop,
-              worksection: data.worksection,
-              team: data.team,
-              level: data.level,
-              shift: data.uloc,
-              uloc: data.workshop,
-              date: data.date,
-              title: data.title,
-            },
-            type: 'POST',
-            dataType: 'json',
-            timeout: 5000,
-            success: function (data) {
-              if (data.res == 'ok') {
-                layer.msg('新增成功', {
-                  time: 1000
-                }, function () {
-                  window.location = '/items/';
-                });
+          form.on('submit(add22)', function (data) {
+            data = data.field;
+            console.log(data);
+            $.ajax({
+              url: '/add_item_api/',
+              data: {
+
+                workshop: data.workshop,
+                worksection: data.worksection,
+                team: data.team,
+                level: data.level,
+                shift: data.shift,
+                uloc: data.uloc,
+                title: data.title,
+              },
+              type: 'POST',
+              dataType: 'json',
+              timeout: 5000,
+              success: function (data) {
+                if (data.res == 'ok') {
+                  layer.msg('新增成功', {
+                    time: 1000
+                  }, function () {
+                    window.location = '/items/';
+                  });
+                }
+
+
+              },
+              error: function (xhr, type, errorThrown) {
+                layer.msg('新增失败，请检查数据');
+                console.log(type);
               }
+            });
+            return false;
 
 
-            },
-            error: function (xhr, type, errorThrown) {
-              layer.msg('新增失败，请检查数据');
-              console.log(type);
-            }
+
           });
-          return false;
-
-
-
-        });
 
 
 
@@ -308,11 +318,33 @@
             type: "POST",
             data: {
               id: data.id
-            }
+            },
+            type: 'POST',
+            dataType: 'json',
+            timeout: 5000,
+
+            success: function (data) {
+              if (data.res == 'ok') {
+                layer.msg('删除成功', {
+                  time: 1000
+                }, function () {
+                  // window.location = '/items/';
+                  obj.del();
+                  layer.close(index);
+                });
+              }
+              if (data.res == '大于等于当前日期有点检计划，请先删除点检计划') {
+                layer.msg('大于等于当前日期有点检计划，请先删除点检计划', {
+                  time: 3000
+                }, function () {
+                  // window.location = '/items/';
+
+                  layer.close(index);
+                });
+              }
+            },
           });
 
-          obj.del();
-          layer.close(index);
         });
       } else if (obj.event === 'edit') {
         layer.open({
@@ -324,29 +356,29 @@
 
         });
         // 打开表单并赋值
- 
-          // 日期格式常规用法
-          // laydate.render({
-          //   elem: '#date11',
-          // });
-          //表单初始赋值
-          form.val('example', {
-            "id": data.id,
-            "workshop": data.workshop // "name": "value"
-              ,
-            "worksection": data.worksection,
-            "team": data.team,
-            "level": data.level //复选框选中状态
-              ,
-            "shift": data.shift //开关状态
-              ,
-            "uloc": data.uloc,
-            "date": data.date,
-            "title": data.title,
 
-          });
-          //提交数据
-          form.on('submit(edit)', function (data) {
+        // 日期格式常规用法
+        // laydate.render({
+        //   elem: '#date11',
+        // });
+        //表单初始赋值
+        form.val('example', {
+          "id": data.id,
+          "workshop": data.workshop // "name": "value"
+            ,
+          "worksection": data.worksection,
+          "team": data.team,
+          "level": data.level //复选框选中状态
+            ,
+          "shift": data.shift //开关状态
+            ,
+          "uloc": data.uloc,
+
+          "title": data.title,
+
+        });
+        //提交数据
+        form.on('submit(edit)', function (data) {
           data = data.field;
           console.log(data);
           $.ajax({
@@ -359,7 +391,7 @@
               level: data.level,
               shift: data.uloc,
               uloc: data.workshop,
-              date: data.date,
+
               title: data.title,
             },
             type: 'POST',
@@ -414,6 +446,83 @@
       <label class="layui-form-label">车间</label>
 
       <div class="layui-input-block">
+        <input id="workshop" type="text" readonly="readonly" name="workshop" lay-verify="title" autocomplete="off"
+          placeholder="请输入" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">工段</label>
+
+      <div class="layui-input-block">
+        <input id="worksection" type="text" readonly="readonly" name="worksection" lay-verify="title" autocomplete="off"
+          placeholder="请输入" class="layui-input">
+      </div>
+    </div>
+
+    <div class="layui-form-item">
+      <label class="layui-form-label">班组</label>
+      <div class="layui-input-block">
+        <input type="text" name="team" placeholder="请输入" readonly="readonly" autocomplete="off" class="layui-input"
+          id="name">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">层级</label>
+
+      <div class="layui-input-block">
+        <input id="level" type="text" readonly="readonly" name="level" lay-verify="title" autocomplete="off"
+          placeholder="请输入" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">班次</label>
+
+      <div class="layui-input-block">
+        <input id="shift" type="text" readonly="readonly" name="shift" lay-verify="title" autocomplete="off"
+          placeholder="请输入" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">工位</label>
+      <div class="layui-input-block">
+        <input id="uloc" type="text" name="uloc" readonly="readonly" placeholder="请输入" autocomplete="off"
+          class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">检查项</label>
+      <div class="layui-input-block">
+        <input id="title" type="text" name="title" placeholder="请输入" autocomplete="off" class="layui-input"
+          lay-verify="title">
+      </div>
+    </div>
+
+
+    <div class="layui-form-item" style="margin-top:40px">
+      <div class="layui-input-block">
+        <button id='edit2' class="layui-btn  layui-btn-submit " lay-submit="" lay-filter="edit">确认</button>
+        <br><br><br>
+        <span style="color: red;">提示:只能修改点检内容</span>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+
+
+<!-- 新增数据 -->
+<div class="layui-row" id="adddateid" style="display:none;">
+
+
+  <form class="layui-form " lay-filter="adddate" id="form">
+
+
+    <div class="layui-form-item">
+      <label class="layui-form-label">车间</label>
+
+      <div class="layui-input-block">
         <select name="workshop" lay-verify="required">
           <option value="BS1">BS1</option>
           <option value="PS1">PS1</option>
@@ -433,8 +542,7 @@
     <div class="layui-form-item">
       <label class="layui-form-label">班组</label>
       <div class="layui-input-block">
-        <input type="text" name="team"  placeholder="请输入" autocomplete="off" class="layui-input"
-          id="name">
+        <input type="text" name="team" placeholder="请输入" autocomplete="off" class="layui-input" id="name">
       </div>
     </div>
     <div class="layui-form-item">
@@ -463,23 +571,18 @@
       </div>
     </div>
     <div class="layui-form-item">
-      <label class="layui-form-label">计划点检日</label>
+      <label class="layui-form-label">点检项</label>
       <div class="layui-input-block">
-        <input id="date11" type="text" name="date" placeholder="请输入" autocomplete="off" class="layui-input">
-      </div>
-    </div>
-    <div class="layui-form-item">
-      <label class="layui-form-label">检查项</label>
-      <div class="layui-input-block">
-        <input id="level" type="text" name="title" placeholder="请输入" autocomplete="off" class="layui-input">
+        <input id="title" type="text" name="title" placeholder="请输入" autocomplete="off" class="layui-input"
+          lay-verify='title'>
       </div>
     </div>
 
 
     <div class="layui-form-item" style="margin-top:40px">
       <div class="layui-input-block">
-        <button id='edit2' class="layui-btn  layui-btn-submit " lay-submit="" lay-filter="edit">确认</button>
-        <button id="cz" type="reset" class="layui-btn layui-btn-primary">重置</button>
+        <button id='add2' class="layui-btn  layui-btn-submit " lay-submit="" lay-filter="add22">确认</button>
+        <button id="cz2" type="reset" class="layui-btn layui-btn-primary">重置</button>
 
       </div>
     </div>
@@ -487,10 +590,6 @@
   </form>
 
 </div>
-
-
-
-
 
 
 

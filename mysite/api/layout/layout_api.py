@@ -6,8 +6,11 @@ import json
 
 def layout_res_api(request):
     today=datetime.date.today()
+    #所有工位的点检计划
+    all_check=plan_status.objects.filter(date=today).values('worksection','team','shift')\
+        .order_by('worksection','team','shift').distinct()
     #找到当天，状态为0，代表没有点检完成，红色状态
-    no_check=bas_title.objects.filter(date=today,status='0').values('worksection','team','shift')\
+    no_check=plan_status.objects.filter(date=today,status='0').values('worksection','team','shift')\
         .order_by('worksection','team','shift').distinct()
 
     #找到当天，所有NOK的结果
@@ -15,11 +18,27 @@ def layout_res_api(request):
         .order_by('worksection','team','shift').distinct()
     no_check=list(no_check)
     nook_check=list(nook_check)
+    all_check=list(all_check)
     #通过循环，去掉NOK里面没有完成的班组，筛选出点检完成但是有NOK的项，设置为黄色
-    for i in no_check:
-        for p in nook_check:
-            if i==p:
-              nook_check.remove(p)
+    y1=[]
+    for i in nook_check:
+        if i not in no_check:
+            y1.append(i)
+    nook_check=y1
+    #两次循环去掉红色和黄色的，留下绿色   
+
+    t1=[]
+    for i in all_check:
+        print(i)
+        if i not in no_check:
+            t1.append(i)
+        
+    green_check=[]
+    for i in t1:
+        print(i)
+        if i not in nook_check:
+            green_check.append(i)
+
     status=[]
     for i in no_check:
         i['team_status']='red'
@@ -27,8 +46,13 @@ def layout_res_api(request):
     for i in nook_check:
          i['team_status']='yellow' 
 
-    status=no_check+nook_check      
-    print(status)   
+    
+    for i in green_check:
+        i['team_status']='green'
+    
+    #汇总所有班组的信息
+    status=no_check+nook_check+green_check  
+    print(status)
     data={}
     data['res']=status
     return JsonResponse(data)

@@ -9,7 +9,7 @@ from mysite.api.user.user_api import *
 from mysite.api.login.login_api import *
 from mysite.api.layout.layout_api import *
 from mysite.api.items.items_api import *
-
+from mysite.api.items.plan import *
 
 # Create your views here.
 

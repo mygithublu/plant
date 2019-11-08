@@ -43,9 +43,20 @@ urlpatterns = [
     url(r'user_upload_file',user_upload_file),
     url(r'user_templates_download',user_templates_download),
     url(r'layout_res_api',layout_res_api),
+    #点检项
     url(r'item_upload_file/',item_upload_file),
+    url(r'add_item_api',add_item_api),
     url(r'item_templates_download/',item_templates_download),
     url(r'item_delete_api',item_delete_api),
     url(r'edit_item_api',edit_item_api),
     url(r'checkupdate_api',checkupdate_api),
+    #plan
+    url(r'plan_upload_file',plan_upload_file),
+    url(r'plan_templates_download',plan_templates_download),
+    url(r'plan_delete_api',plan_delete_api),
+    url(r'edit_plan_api',edit_plan_api),
+    url(r'add_plan_api',add_plan_api),
+    url(r'pc_plan_api',pc_plan_api),
+
+
 ]

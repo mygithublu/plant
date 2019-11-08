@@ -26,13 +26,50 @@ class bas_title(models.Model):
     level=models.CharField('层级',null=False,max_length=10)
     shift=models.CharField('班次',null=False,max_length=5)
     uloc=models.CharField('工位',null=False,max_length=20)
-    date=models.DateField('日期',null=False)
     title=models.CharField('检查项',null=False,max_length=300)
     status=models.CharField('检查状态',null=False,default='0',max_length=5)
     createtime=models.DateTimeField('创建时间',auto_now_add=True)
     updatetime=models.DateTimeField('更新时间',auto_now=True)
     class Meta:
         ordering=['id']
+
+
+
+#点检计划
+class pc_plan(models.Model):
+    workshop=models.CharField('车间',null=False,max_length=10)
+    worksection=models.CharField('工段',null=False,max_length=10)
+    team=models.CharField('班组',null=False,max_length=10)
+    level=models.CharField('层级',null=False,max_length=10)
+    shift=models.CharField('班次',null=False,max_length=5)
+    uloc=models.CharField('工位',null=False,max_length=20)
+    date=models.DateField('日期',null=False)
+    status=models.CharField('检查状态',null=False,default='0',max_length=5)
+    createtime=models.DateTimeField('创建时间',auto_now_add=True)
+    updatetime=models.DateTimeField('更新时间',auto_now=True)
+    class Meta:
+        ordering=['id']
+
+
+# # 点检计划状态
+class plan_status(models.Model):
+    item_id=models.CharField('点检项目id',null=False,max_length=20)
+    plan_id=models.CharField('点检计划id',null=False,max_length=20)
+    workshop=models.CharField('车间',null=False,max_length=10)
+    worksection=models.CharField('工段',null=False,max_length=10)
+    team=models.CharField('班组',null=False,max_length=10)
+    level=models.CharField('层级',null=False,max_length=10)
+    shift=models.CharField('班次',null=False,max_length=5)
+    uloc=models.CharField('工位',null=False,max_length=20)
+    title=models.CharField('检查项',null=False,max_length=300)    
+    date=models.DateField('日期',null=False)
+    status=models.CharField('检查状态',null=False,default='0',max_length=5)
+    createtime=models.DateTimeField('创建时间',auto_now_add=True)
+    updatetime=models.DateTimeField('更新时间',auto_now=True)
+    class Meta:
+        ordering=['id']
+
+
 
 
 

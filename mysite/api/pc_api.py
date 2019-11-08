@@ -16,14 +16,14 @@ def items_pc_api(request):
     limit=int(limit)
     s=page*limit
     e=s+limit
-    if(request.GET.get('workshop')or request.GET.get('worksection')or request.GET.get('team')or request.GET.get('level')or request.GET.get('shift')or request.GET.get('uloc')or request.GET.get('date')):
+    if(request.GET.get('workshop')or request.GET.get('worksection')or request.GET.get('team')or request.GET.get('level')or request.GET.get('shift')or request.GET.get('uloc')):
         workshop=request.GET.get('workshop')
         worksection=request.GET.get('worksection')
         team=request.GET.get('team')
         level=request.GET.get('level')
         shift=request.GET.get('shift')
         uloc=request.GET.get('uloc')
-        date=request.GET.get('date')
+        
         search_info=dict()
         if workshop:
             search_info['workshop']=workshop
@@ -37,8 +37,6 @@ def items_pc_api(request):
             search_info['shift']=shift
         if uloc:
             search_info['uloc']=uloc
-        if date:
-            search_info['date']=date
         #通过字典方式查询，**dict   
         date=bas_title.objects.filter(**search_info)[s:e].values()
         count=bas_title.objects.filter(**search_info).count()

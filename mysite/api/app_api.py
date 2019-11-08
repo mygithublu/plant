@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.http import JsonResponse
-from mysite.models import zzuser,bas_title,record
+from mysite.models import *
 import datetime
 import json
 
@@ -21,8 +21,9 @@ def get_title_api(request):
     # uloc=zzuser.objects.all().values().filter(username=username)[0]['uloc']
 
     today=datetime.date.today()
+    # plan_status.objects.filter(uloc=uloc,level=level,date=today)
     title={}
-    data=bas_title.objects.filter(uloc=uloc,level=level,date=today,status='0',shift=shift).values()
+    data=plan_status.objects.filter(uloc=uloc,level=level,date=today,shift=shift,status='0').values()
     title['title']=list(data)
     return JsonResponse(title)
 
@@ -36,7 +37,7 @@ def submit_api(request):
     reason=request.POST.get('reason')
     username=request.POST.get('username')
     today=datetime.date.today()
-    title_info=bas_title.objects.filter(id=id).values()
+    title_info=plan_status.objects.filter(id=id).values()
     workshop=title_info[0]['workshop']
     worksection=title_info[0]['worksection']
     team=title_info[0]['team']
@@ -60,7 +61,7 @@ def submit_api(request):
     name=name[0]['name']
     record.objects.create(workshop=workshop,worksection=worksection,team=team,level=level,shift=shift,date=date,title=title,res=res,reason=reason,res_time=res_time,username=username,name=name,uloc=uloc)
     
-    bas_title.objects.filter(id=id).update(status='1')
+    plan_status.objects.filter(id=id).update(status='1')
     
     result={}
     result['ok']='ok'
