@@ -12,8 +12,26 @@
         left: 80px;
         top: 80px;
     }
+
+    #select {
+        position: absolute;
+        left: 1150px;
+    }
 </style>
+
 <div id="app">
+    <div id='select'>
+        日期:<input type="date" v-model='select_date' />
+        班次:
+        <select v-model='select_shift'>
+            <option value="A">A班</option>
+            <option value="B">B班</option>
+        </select>
+
+
+    </div>
+
+
     <div id='lay'>
 
     </div>
@@ -45,29 +63,47 @@
     </div>
 
 
-
-
-
-
 </div>
 
 </div>
+
+
+
+
 
 <script>
     $(document).ready(function () {
+
         var app = new Vue({
             el: '#app',
             data: {
                 status: '',
                 green: false,
                 display: 'true',
+                select_date: '',
+                select_shift: 'A',
             },
             created() {
+                var date = new Date();
+                var y = date.getFullYear();
+                var m = date.getMonth() + 1;
+                var d = date.getDate();
+                var today = y + '-' + m + '-' + d;
+                if (m < 10) {
+                    m = "0" + m;
+                }
+                if (d < 10) {
+                    d = "0" + d;
+                }
+                // var tt=date .toLocaleDateString(); //获取当前日期
+                this.select_date = today;
 
                 setInterval(function () {
                     $.ajax({
                         url: '/layout_res_api/',
                         data: {
+                            select_date: app.select_date,
+                            select_shift: app.select_shift,
 
                         },
                         dataType: 'json',
@@ -84,7 +120,7 @@
 
 
                     });
-                }, 2000)
+                }, 5000)
                 setInterval(function () {
                     //left=200px(原始位置)-width/2
                     //top=200px(原始位置)-height/2
@@ -215,6 +251,14 @@
 
                     }, 500);
 
+                    // $(".C4T3grren").animate({
+                    //     width: '35px',
+                    //     height: '35px',
+                    //     left: '710px',
+                    //     top: '80px',
+                    //     opacity: 0.5,
+                    // }, 500);
+
                     //底盘四T4班组
                     $(".C4T4red").animate({
                         width: "40px",
@@ -284,15 +328,6 @@
                         opacity: 0.5,
 
                     }, 500);
-
-
-
-
-
-
-
-
-
 
 
 

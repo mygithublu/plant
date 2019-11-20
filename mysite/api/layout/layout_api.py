@@ -5,7 +5,16 @@ import datetime
 import json
 
 def layout_res_api(request):
-    today=datetime.date.today()
+
+    #从前台获取选择的日期和班次
+    today=request.POST.get('select_date')
+    shift=request.POST.get('select_shift')
+
+
+    #默认当天
+    # today=datetime.date.today()
+
+  
     #所有工位的点检计划
     all_check=plan_status.objects.filter(date=today).values('worksection','team','shift')\
         .order_by('worksection','team','shift').distinct()
@@ -29,13 +38,13 @@ def layout_res_api(request):
 
     t1=[]
     for i in all_check:
-        print(i)
+        
         if i not in no_check:
             t1.append(i)
         
     green_check=[]
     for i in t1:
-        print(i)
+        
         if i not in nook_check:
             green_check.append(i)
 
@@ -51,8 +60,16 @@ def layout_res_api(request):
         i['team_status']='green'
     
     #汇总所有班组的信息
-    status=no_check+nook_check+green_check  
-    print(status)
+    status=no_check+nook_check+green_check
+
+    #筛选前台选择的班次
+    select_status=[]
+    for i in status:
+        if (i['shift']==shift):
+            select_status.append(i)
+
+
+    print(select_status)
     data={}
-    data['res']=status
+    data['res']=select_status
     return JsonResponse(data)

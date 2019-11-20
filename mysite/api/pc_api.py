@@ -128,6 +128,7 @@ def record_api(request):
         data['msg']=""
         data['count']=count
         data['data']=list(date)
+        
         return JsonResponse(data)
 
 

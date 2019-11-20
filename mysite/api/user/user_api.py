@@ -93,6 +93,7 @@ def add_user_api(request):
         add_info['level']=level
     if isadmin:
         add_info['is_admin']=is_admin
+    add_info['password']='123456'
     state = zzuser.objects.create(**add_info)
     res = {}
     res['res'] = 'ok'
@@ -162,7 +163,8 @@ def user_upload_file(request):
         user_info['shift']=df.iloc[i,6]
         user_info['level']=df.iloc[i,7]
         user_info['uloc']=df.iloc[i,8]
-        user_info['is_admin']=df.iloc[i,9]        
+        user_info['is_admin']=df.iloc[i,9]
+        user_info['password']='123456'     
         zzuser.objects.create(**user_info)
         user_info=dict()
 
