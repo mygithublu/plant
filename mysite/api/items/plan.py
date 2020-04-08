@@ -5,7 +5,7 @@ import datetime
 import json
 import pandas as pd
 from django.http import FileResponse #文件下载
-
+from mysite.config import user_info_hs
 #上传
 #点检导入导入并创建
 def plan_upload_file(request):
@@ -52,7 +52,8 @@ def plan_upload_file(request):
                 is_item=list(is_item)
                 print(is_item)
                 for o in is_item:
-                    plan_status.objects.create(plan_id=plan_id,item_id=o['id'],title=o['title'],workshop=workshop,worksection=worksection,team=team,level=level,shift=shift,uloc=uloc,date=date,status='0')
+                     #20200117新增类别，维度，分类字段
+                    plan_status.objects.create(plan_id=plan_id,item_id=o['id'],title=o['title'],title_lb=o['title_lb'],title_wd=o['title_wd'],title_fl=o['title_fl'],workshop=workshop,worksection=worksection,team=team,level=level,shift=shift,uloc=uloc,date=date,status='0')
                 plan_info=dict()
             else:
                 res = {}
@@ -181,7 +182,7 @@ def add_plan_api(request):
             plan_id=cur_date[0]['id']
             is_item=list(is_item)
             for o in is_item:
-                plan_status.objects.create(plan_id=plan_id,item_id=o['id'],title=o['title'],workshop=workshop,worksection=worksection,team=team,level=level,shift=shift,uloc=uloc,date=date,status='0')
+                plan_status.objects.create(plan_id=plan_id,item_id=o['id'],title=o['title'],title_lb=o['title_lb'],title_wd=o['title_wd'],title_fl=o['title_fl'],workshop=workshop,worksection=worksection,team=team,level=level,shift=shift,uloc=uloc,date=date,status='0')
             res = {}
             res['res'] = 'ok'
             return JsonResponse(res)   
@@ -203,6 +204,8 @@ def pc_plan_api(request):
     limit=int(limit)
     s=page*limit
     e=s+limit
+    username = request.session.get("username")
+    data_info=user_info_hs(username)
     if(request.GET.get('workshop')or request.GET.get('worksection')or request.GET.get('team')or request.GET.get('level')or request.GET.get('shift')or request.GET.get('uloc')or request.GET.get('date')):
         workshop=request.GET.get('workshop')
         worksection=request.GET.get('worksection')
@@ -213,22 +216,42 @@ def pc_plan_api(request):
         date=request.GET.get('date')
         search_info=dict()
         if workshop:
-            search_info['workshop']=workshop
+            if 'workshop' in data_info :
+                search_info['workshop']=data_info['workshop']
+                del data_info['workshop']
+            else:                
+                search_info['workshop']=workshop
         if worksection:
-            search_info['worksection']=worksection
+            if 'worksection' in data_info :
+                search_info['worksection']=data_info['worksection']
+                del data_info['worksection']
+            else:
+                search_info['worksection']=worksection
         if team:
-            search_info['team']=team            
+            if 'team' in data_info :
+                search_info['team']=data_info['team']
+                del data_info['team']
+            else:
+                search_info['team']=team                
         if level:
-            search_info['level']=level
+            if 'level' in data_info:                
+                search_info['level']=data_info['level']
+                del data_info['level']
+            else:
+                search_info['level']=level
         if shift:
-            search_info['shift']=shift
+            if 'shift' in data_info:                
+                search_info['shift']=data_info['shift']
+                del data_info['shift']
+            else:
+                search_info['shift']=shift
         if uloc:
             search_info['uloc']=uloc
         if date:
             search_info['date']=date
         #通过字典方式查询，**dict   
-        date=pc_plan.objects.filter(**search_info)[s:e].values()
-        count=pc_plan.objects.filter(**search_info).count()
+        date=pc_plan.objects.filter(**search_info,**data_info)[s:e].values()
+        count=pc_plan.objects.filter(**search_info,**data_info).count()
         data = {}
         data['code']=0
         data['msg']=""
@@ -236,11 +259,23 @@ def pc_plan_api(request):
         data['data']=list(date)
         return JsonResponse(data)        
     else:
-        date=pc_plan.objects.all()[s:e].values()
-        count=pc_plan.objects.all().count()
+        date=pc_plan.objects.filter(**data_info)[s:e].values()
+        count=pc_plan.objects.filter(**data_info).count()
         data = {}
         data['code']=0
         data['msg']=""
         data['count']=count
         data['data']=list(date)
         return JsonResponse(data)
+
+
+def p_tt_api(request):
+    date=[{'day1':'N','day2':'N','day3':'Y','day4':'N','day5':'Y','day6':'N','day7':'N','today':'3'}]
+    print(date)
+    data = {}
+    data['code']=0
+    data['msg']=""
+    data['count']=1
+    data['data']=date
+    
+    return JsonResponse(data) 

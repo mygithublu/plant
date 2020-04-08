@@ -31,7 +31,6 @@ def item_upload_file(request):
         shift=df.iloc[i,4]
         uloc=df.iloc[i,5]
         title=df.iloc[i,6]
-
         item_info['workshop']=df.iloc[i,0]
         item_info['worksection']=df.iloc[i,1]
         item_info['team']=df.iloc[i,2]       
@@ -39,6 +38,24 @@ def item_upload_file(request):
         item_info['shift']=df.iloc[i,4]       
         item_info['uloc']=df.iloc[i,5]                     
         item_info['title']=df.iloc[i,6]
+
+        #20200117新增类别，维度，分类字段
+        xz_zd={}
+        if df.iloc[i,7]:
+            title_lb=df.iloc[i,7]
+            item_info['title_lb']=df.iloc[i,7]
+            xz_zd['title_lb']=title_lb
+        if df.iloc[i,8]:
+            title_wd=df.iloc[i,8]
+            item_info['title_wd']=df.iloc[i,8]
+            xz_zd['title_wd']=title_wd
+        if df.iloc[i,9]:
+            title_fl=df.iloc[i,9]
+            item_info['title_fl']=df.iloc[i,9]
+            xz_zd['title_fl']=title_fl
+        
+     
+
         is_plan=plan_status.objects.filter(workshop=workshop,worksection=worksection,team=team,level=level,shift=shift,uloc=uloc,date__gte=today)\
             .values('plan_id','workshop','worksection','team','level','shift','uloc','date')\
             .order_by('plan_id','workshop','worksection','team','level','shift','uloc','date').distinct()
@@ -50,9 +67,11 @@ def item_upload_file(request):
             cur_id=cur.id
             is_plan=list(is_plan)
             for i in is_plan:
-                plan_status.objects.create(item_id=cur_id,plan_id=i['plan_id'],workshop=i['workshop'],worksection=i['worksection'],team=i['team'],level=i['level'],shift=i['shift'],uloc=i['uloc'],title=title,date=i['date'],status='0')
+                plan_status.objects.create(item_id=cur_id,plan_id=i['plan_id'],workshop=i['workshop'],worksection=i['worksection'],team=i['team'],level=i['level'],shift=i['shift'],uloc=i['uloc'],title=title,date=i['date'],status='0',**xz_zd)
             #创建完毕后，把创建信息置为空
             item_info=dict()
+             #20200117新增类别，维度，分类字段
+            xz_zd={}
         else:
             bas_title.objects.create(**item_info)
             #创建完毕后，把创建信息置为空
@@ -111,10 +130,21 @@ def edit_item_api(request):
     today=datetime.date.today()
     id=request.POST.get('id')
     post_title=request.POST.get('title')
-    title=bas_title.objects.filter(id=id).values()
-    title=title[0]['title']
+    post_title_lb=request.POST.get('title_lb')
+    post_title_wd=request.POST.get('title_wd')
+    post_title_fl=request.POST.get('title_fl')
+
+    print(post_title_lb)
+
+    title_res=bas_title.objects.filter(id=id).values()
+    title=title_res[0]['title']
+    title_lb=title_res[0]['title_lb']
+    title_wd=title_res[0]['title_wd']
+    title_fl=title_res[0]['title_fl']
+
+
     #如果没有修改
-    if(post_title==title):
+    if(post_title==title and post_title_lb==title_lb and post_title_wd==title_wd and post_title_fl==title_fl):
         res = {}
         res['res'] = 'ok'
         return JsonResponse(res)
@@ -123,12 +153,13 @@ def edit_item_api(request):
         is_plan=plan_status.objects.filter(item_id=id,date__gte=today).values()
         #大于等于当前日期存在计划，则更新大于等于当前日期的状态表，并置为0
         if is_plan:
-            plan_status.objects.filter(item_id=id,date__gte=today,status='0')
+            plan_status.objects.filter(item_id=id,date__gte=today).update(status='0',title=post_title,title_lb=post_title_lb,title_wd=post_title_wd,title_fl=post_title_fl)
+            bas_title.objects.filter(id=id).update(title=post_title,title_lb=post_title_lb,title_wd=post_title_wd,title_fl=post_title_fl)
             res = {}
             res['res'] = 'ok'
             return JsonResponse(res)
         else:
-            bas_title.objects.filter(id=id).update(title=title)
+            bas_title.objects.filter(id=id).update(title=post_title,title_lb=post_title_lb,title_wd=post_title_wd,title_fl=post_title_fl)
             res = {}
             res['res'] = 'ok'
             return JsonResponse(res)

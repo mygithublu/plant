@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="utf-8">
+        <title>分层管理系统</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link type="text/css" rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+        <script src="/static/layui/layui.all.js"></script>
+
+<style>
+.layui-nav{
+
+  z-index:1000
+}
+</style>
+
+ </head>
+<body>
+    <ul class="layui-nav">
+        <li class="layui-nav-item"><a href="">主页</a></li>
+        <li class="layui-nav-item "><a href="/user/">用户管理</a></li>
+        <li class="layui-nav-item"><a href="/items/">点检项目</a></li>
+        <li class="layui-nav-item "><a href="/index/">点检记录</a></li>
+        <li class="layui-nav-item"><a href="">点检监控</a></li>
+        <!-- <li class="layui-nav-item layui-this">
+          <a href="javascript:;">点检记录</a>
+          <dl class="layui-nav-child">
+            <dd><a href="">技术资料</a></dd>
+            <dd><a href="">BOM清单</a></dd>
+            <dd><a href="">维保计划</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">点检监控</a></li>
+        <li class="layui-nav-item"><a href="">PCR</a></li>
+        <li class="layui-nav-item"><a href="">维护保养</a></li>
+        <li class="layui-nav-item"><a href="">专业点检</a></li> -->
+
+      </ul>
+<br><br>
+      <script>
+          layui.use('element', function(){
+            var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+            
+            //监听导航点击
+            element.on('nav(demo)', function(elem){
+              //console.log(elem)
+              layer.msg(elem.text());
+            });
+          });
+          </script>
+
+
+      {% block content %}
+      {% endblock %}
+
+
+
+</body>
+</html>

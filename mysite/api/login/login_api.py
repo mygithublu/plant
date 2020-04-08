@@ -16,7 +16,7 @@ def pc_login_api(request):
             res['res']=1
             res['username']=username
             request.session["username"] = ok[0]['username']
-            request.session.set_expiry(60*30)
+            request.session.set_expiry(60*60)
             return JsonResponse(res)
         else:
             res={}
@@ -27,8 +27,3 @@ def pc_login_api(request):
         res={}
         res['res']=0
         return JsonResponse(res)        
-
-
-    res={}
-    res['res']=1
-    return JsonResponse(res)

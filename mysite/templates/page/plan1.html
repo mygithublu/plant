@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="layui-hide" id="test"></table>
+{% verbatim %}
+<script type="text/html" id="switchTpl">
+    <!-- 这里的 checked 的状态只是演示 -->
+<input type="checkbox" value={{d.today}} name="sex" lay-skin="switch" lay-text="N|Y" lay-filter="sexDemo" {{ d.today < 2 ? 'disabled' : '' }}  >
+</script>
+{% endverbatim %}
+<script type="text/html" id="switchTpl2">
+    <!-- 这里的 checked 的状态只是演示 -->
+<input type="checkbox" name="sex" lay-skin="switch" lay-text="N|Y" lay-filter="sexDemo" disabled="" >
+</script>
+
+<script>
+    layui.use('table', function () {
+        var table = layui.table,
+            form = layui.form;
+
+        table.render({
+            elem: '#test',
+            url: '/p_tt_api/',
+            cellMinWidth: 80,
+            cols: [
+                [{
+                    type: 'numbers'
+                }, {
+                    field: 'day1',
+                    title: '1',
+                    width: 85,
+                    templet: '#switchTpl',
+                    unresize: true
+                }, {
+                    field: 'day2',
+                    title: '2',
+                    width: 85,
+                    templet: '#switchTpl',
+                    unresize: true
+                }, {
+                    field: 'day3',
+                    title: '3',
+                    width: 85,
+                    templet: '#switchTpl',
+                    unresize: true
+                }, {
+                    field: 'day4',
+                    title: '4',
+                    width: 85,
+                    templet: '#switchTpl',
+                    unresize: true
+                }, {
+                    field: 'day5',
+                    title: '5',
+                    width: 85,
+                    templet: '#switchTpl',
+                    unresize: true
+                }, {
+                    field: 'day6',
+                    title: '6',
+                    width: 85,
+                    templet: '#switchTpl',
+                    unresize: true
+                }, ]
+            ]
+        });
+
+        //监听性别操作
+        form.on('switch(sexDemo)', function (obj) {
+            layer.tips(this.value + ' ' + this.name + '：' + obj.elem.checked, obj.othis);
+        });
+
+
+    });
+</script>
+
+
+
+{% endblock %}

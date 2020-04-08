@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>分层管理系统</title>
+  <!-- <link rel="shortcut icon" href="/static/i.ico"> -->
+  <link type="text/css" rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="shortcut icon" href="/static/i.ico">
+  <script src="/static/layui/layui.js"></script>
+  <script src="/static/vue.js"></script>
+  <script src="/static/jquery.js"></script>
+</head>
+
+<body class="layui-layout-body">
+  <div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+      <div class="layui-logo">
+        <span style="color: red;"> <i class="layui-icon kit-side-fold">&#xe668;</i> </span>
+        班组管理
+
+
+      </div>
+      <!-- 头部区域（可配合layui已有的水平导航） -->
+      <!-- <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><a href="">控制台</a></li>
+      <li class="layui-nav-item"><a href="">商品管理</a></li>
+      <li class="layui-nav-item"><a href="">用户</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+          贤心
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="">退了</a></li>
+    </ul> -->
+    </div>
+
+    <div class="layui-side layui-bg-black">
+      <div class="layui-side-scroll">
+        <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+        <ul class="layui-nav layui-nav-tree" lay-filter="test">
+          <li class="layui-nav-item layui-nav-itemed">
+            <a class="" href="javascript:;"> <i class="layui-icon">&#xe66f;</i><span>分层管理</span></a>
+            <dl class="layui-nav-child">
+              <dd><a href="/user/"> <i class="layui-icon">&#xe770;</i> <span>用户管理</span></a></dd>
+              <dd><a href="/items/"> <i class="layui-icon">&#xe649;</i> <span>点检项目</span></a></dd>
+              <dd><a href="/plan/"> <i class="layui-icon">&#xe637;</i> <span>点检计划</span></a></dd>
+              <dd><a href="/record/"><i class="layui-icon">&#xe63c;</i> <span>点检记录</span></a></dd>
+              <dd><a href="/layout/"> <i class="layui-icon">&#xe667;</i> <span>监控预警</span></a></dd>
+              <!-- <dd><a href="/layout/">layout</a></dd> -->
+            </dl>
+          </li>
+          <!-- <li class="layui-nav-item">
+            <a href="javascript:;">解决方案</a>
+            <dl class="layui-nav-child">
+              <dd><a href="javascript:;">列表一</a></dd>
+              <dd><a href="javascript:;">列表二</a></dd>
+              <dd><a href="">超链接</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item"><a href="">云市场</a></li>
+          <li class="layui-nav-item"><a href="">发布商品</a></li> -->
+        </ul>
+      </div>
+    </div>
+
+    <div class="layui-body" id="layui-body">
+      <!-- 内容主体区域 -->
+      <div style="padding: 15px;"></div>
+
+      {% block content %}
+      {% endblock %}
+
+    </div>
+
+    <div class="layui-footer">
+      <!-- 底部固定区域 -->
+      © i创
+    </div>
+  </div>
+
+  <script>
+    //JavaScript代码区域
+    layui.use('element', function () {
+      var element = layui.element;
+
+    });
+
+
+
+    //默认隐藏侧边栏
+    $('.layui-nav-item span').each(function () {
+      $(this).hide();
+      $('.layui-side.layui-bg-black').width(60); //设置宽度
+      $('.kit-side-fold i').css('margin-right', '70%'); //修改图标的位置
+      //将footer和body的宽度修改
+      $('.layui-body').css('left', 60 + 'px');
+      $('.layui-footer').css('left', 60 + 'px');
+      //将二级导航栏隐藏
+      $('dd span').each(function () {
+        $(this).hide();
+      });
+      //修改标志位
+      isShow = false;
+
+    });
+
+
+    //通过点击控制收缩和显示
+    // var isShow = true; //定义一个标志位
+    $('.kit-side-fold').click(function () {
+      //选择出所有的span，并判断是不是hidden
+      $('.layui-nav-item span').each(function () {
+        if ($(this).is(':hidden')) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
+      //判断isshow的状态
+      if (isShow) {
+        $('.layui-side.layui-bg-black').width(60); //设置宽度
+        $('.kit-side-fold i').css('margin-right', '70%'); //修改图标的位置
+        //将footer和body的宽度修改
+        // $('.layui-body').css('left', 60 + 'px');
+        // $('.layui-footer').css('left', 60 + 'px');
+        //将二级导航栏隐藏
+        $('dd span').each(function () {
+          $(this).hide();
+        });
+        //修改标志位
+        isShow = false;
+      } else {
+        $('.layui-side.layui-bg-black').width(200);
+        $('.kit-side-fold i').css('margin-right', '10%');
+        // $('.layui-body').css('left', 200 + 'px');
+        // $('.layui-footer').css('left', 200 + 'px');
+        $('dd span').each(function () {
+          $(this).show();
+        });
+        isShow = true;
+      }
+    });
+  </script>
+</body>
+
+</html>
