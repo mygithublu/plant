@@ -91,7 +91,7 @@ def add_user_api(request):
         add_info['shift']=shift
     if level:
         add_info['level']=level
-    if isadmin:
+    if is_admin:
         add_info['is_admin']=is_admin
     add_info['password']='123456'
     state = zzuser.objects.create(**add_info)

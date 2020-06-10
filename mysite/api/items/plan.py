@@ -248,16 +248,30 @@ def pc_plan_api(request):
         if uloc:
             search_info['uloc']=uloc
         if date:
-            search_info['date']=date
-        #通过字典方式查询，**dict   
-        date=pc_plan.objects.filter(**search_info,**data_info)[s:e].values()
-        count=pc_plan.objects.filter(**search_info,**data_info).count()
-        data = {}
-        data['code']=0
-        data['msg']=""
-        data['count']=count
-        data['data']=list(date)
-        return JsonResponse(data)        
+            #20200514修改为时间范围
+            startime= date[0:10]
+            endtime=date[-10:]
+ 
+            # search_info['date']=date
+            #通过字典方式查询，**dict   
+            date=pc_plan.objects.filter(**search_info,**data_info,date__range=(startime,endtime))[s:e].values()
+            count=pc_plan.objects.filter(**search_info,**data_info,date__range=(startime,endtime)).count()
+            data = {}
+            data['code']=0
+            data['msg']=""
+            data['count']=count
+            data['data']=list(date)
+            return JsonResponse(data)
+        else:
+            date=pc_plan.objects.filter(**search_info,**data_info)[s:e].values()
+            count=pc_plan.objects.filter(**search_info,**data_info).count()
+            data = {}
+            data['code']=0
+            data['msg']=""
+            data['count']=count
+            data['data']=list(date)
+            return JsonResponse(data)
+
     else:
         date=pc_plan.objects.filter(**data_info)[s:e].values()
         count=pc_plan.objects.filter(**data_info).count()

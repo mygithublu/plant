@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'record_api/',record_api),
     url(r'get_title_api',get_title_api),
     url(r'^get_plan_status_api',get_plan_status_api),
-
+    url(r'^record__download',record__download),
     url(r'record_delete_api',record_delete_api),
     url(r'^index/record/$',record),
     url(r'items_pc_api',items_pc_api),

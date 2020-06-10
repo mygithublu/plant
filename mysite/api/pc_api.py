@@ -5,7 +5,9 @@ import datetime
 import json
 import time
 from mysite.config import user_info_hs
-
+from django.http import FileResponse #文件下载
+import openpyxl
+from openpyxl import load_workbook
 
 ##点检项目获取
 def items_pc_api(request):
@@ -150,23 +152,39 @@ def record_api(request):
                 search_info['shift']=shift
         if uloc:
             search_info['uloc']=uloc
-        if date:
-            search_info['date']=date
+
         if res:
             search_info['res']=res
         if username:
             search_info['username']=username
         if name:
             search_info['name']=name
-        #获取数据条数
-        date=record.objects.filter(**search_info,**data_info)[s:e].values()
-        data = {}
-        count=record.objects.filter(**search_info,**data_info).count()
-        data['code']=0
-        data['msg']=""
-        data['count']=count
-        data['data']=list(date)        
-        return JsonResponse(data) 
+        if date:
+            #20200514修改为时间范围
+            startime= date[0:10]
+            endtime=date[-10:]
+ 
+            # search_info['date']=date
+            #获取数据条数
+            date=record.objects.filter(**search_info,**data_info,date__range=(startime,endtime))[s:e].values()
+            data = {}
+            count=record.objects.filter(**search_info,**data_info,date__range=(startime,endtime)).count()
+            data['code']=0
+            data['msg']=""
+            data['count']=count
+            data['data']=list(date)        
+            return JsonResponse(data)
+        else:
+            #获取数据条数
+            date=record.objects.filter(**search_info,**data_info)[s:e].values()
+            data = {}
+            count=record.objects.filter(**search_info,**data_info).count()
+            data['code']=0
+            data['msg']=""
+            data['count']=count
+            data['data']=list(date)        
+            return JsonResponse(data)
+
     else:
         date=record.objects.filter(**data_info)[s:e].values()
         data = {}
@@ -216,14 +234,37 @@ def pc_problem_api(request):
     username = request.session.get("username")
     data_info=user_info_hs(username)
 
-    if(request.GET.get('date')or request.GET.get('level')or request.GET.get('shift')or request.GET.get('uloc')or request.GET.get('status')):
+    if(request.GET.get('workshop')or request.GET.get('worksection')or request.GET.get('team')or request.GET.get('date')or request.GET.get('level')or request.GET.get('shift')or request.GET.get('uloc')or request.GET.get('status')):
 
         level=request.GET.get('level')
         shift=request.GET.get('shift')
         uloc=request.GET.get('uloc')
         date=request.GET.get('date')
         status=request.GET.get('status')
+        workshop=request.GET.get('workshop')
+        worksection=request.GET.get('worksection')
+        team=request.GET.get('team')
         search_info=dict()
+
+        if workshop:
+            if 'workshop' in data_info :
+                search_info['workshop']=data_info['workshop']
+                del data_info['workshop']
+            else:                
+                search_info['workshop']=workshop
+        if worksection:
+            if 'worksection' in data_info :
+                search_info['worksection']=data_info['worksection']
+                del data_info['worksection']
+            else:
+                search_info['worksection']=worksection
+        if team:
+            if 'team' in data_info :
+                search_info['team']=data_info['team']
+                del data_info['team']
+            else:
+                search_info['team']=team   
+
         
         if level:
             if 'level' in data_info:                
@@ -239,19 +280,37 @@ def pc_problem_api(request):
                 search_info['shift']=shift
         if uloc:
             search_info['uloc']=uloc
-        if date:
-            search_info['date']=date
+
         if status:
             search_info['status']=status
-        #获取数据条数
-        date=problem_status.objects.filter(**search_info,**data_info,status__in=['未关闭','驳回','进行中','逾期'])[s:e].values()
-        data = {}
-        count=problem_status.objects.filter(**search_info,**data_info,status__in=['未关闭','驳回','进行中','逾期']).count()
-        data['code']=0
-        data['msg']=""
-        data['count']=count
-        data['data']=list(date)
-        return JsonResponse(data) 
+        if date:
+            #20200514修改为时间范围
+            startime= date[0:10]
+            endtime=date[-10:]
+ 
+            # search_info['date']=date
+            #获取数据条数
+            date=problem_status.objects.filter(**search_info,**data_info,status__in=['未关闭','驳回','进行中','逾期'],date__range=(startime,endtime))[s:e].values()
+            data = {}
+            count=problem_status.objects.filter(**search_info,**data_info,status__in=['未关闭','驳回','进行中','逾期'],date__range=(startime,endtime)).count()
+            data['code']=0
+            data['msg']=""
+            data['count']=count
+            data['data']=list(date)
+            return JsonResponse(data) 
+        else:
+            print(search_info)
+            print(data_info)
+            #获取数据条数
+            date=problem_status.objects.filter(**search_info,**data_info,status__in=['未关闭','驳回','进行中','逾期'])[s:e].values()
+            data = {}
+            count=problem_status.objects.filter(**search_info,**data_info,status__in=['未关闭','驳回','进行中','逾期']).count()
+            data['code']=0
+            data['msg']=""
+            data['count']=count
+            data['data']=list(date)
+            return JsonResponse(data) 
+
     else:
         date=problem_status.objects.filter(**data_info,status__in=['未关闭','驳回','进行中','逾期'])[s:e].values()
         data = {}
@@ -321,15 +380,38 @@ def pc_confirm_api(request):
     username = request.session.get("username")
     data_info=user_info_hs(username)
 
-    if(request.GET.get('date')or request.GET.get('level')or request.GET.get('shift')or request.GET.get('uloc')or request.GET.get('status')):
+    if(request.GET.get('workshop')or request.GET.get('worksection')or request.GET.get('team')or request.GET.get('date')or request.GET.get('level')or request.GET.get('shift')or request.GET.get('uloc')or request.GET.get('status')):
 
         level=request.GET.get('level')
         shift=request.GET.get('shift')
         uloc=request.GET.get('uloc')
         date=request.GET.get('date')
         status=request.GET.get('status')
+        workshop=request.GET.get('workshop')
+        worksection=request.GET.get('worksection')
+        team=request.GET.get('team')
         search_info=dict()
-        
+        if workshop:
+            if 'workshop' in data_info :
+                search_info['workshop']=data_info['workshop']
+                del data_info['workshop']
+            else:                
+                search_info['workshop']=workshop
+        if worksection:
+            if 'worksection' in data_info :
+                search_info['worksection']=data_info['worksection']
+                del data_info['worksection']
+            else:
+                search_info['worksection']=worksection
+        if team:
+            if 'team' in data_info :
+                search_info['team']=data_info['team']
+                del data_info['team']
+            else:
+                search_info['team']=team  
+
+
+
         if level:
             if 'level' in data_info:                
                 search_info['level']=data_info['level']
@@ -344,19 +426,34 @@ def pc_confirm_api(request):
                 search_info['shift']=shift
         if uloc:
             search_info['uloc']=uloc
-        if date:
-            search_info['date']=date
+
         if status:
             search_info['status']=status
-        #获取数据条数
-        date=problem_status.objects.filter(**search_info,**data_info,status__in=['进行中','待审核','逾期'])[s:e].values()
-        data = {}
-        count=problem_status.objects.filter(**search_info,**data_info,status__in=['进行中','待审核','逾期']).count()
-        data['code']=0
-        data['msg']=""
-        data['count']=count
-        data['data']=list(date)
-        return JsonResponse(data) 
+        if date:
+            #20200514修改为时间范围
+            startime= date[0:10]
+            endtime=date[-10:]
+ 
+            # search_info['date']=date
+            #获取数据条数
+            date=problem_status.objects.filter(**search_info,**data_info,status__in=['进行中','待审核','逾期'],date__range=(startime,endtime))[s:e].values()
+            data = {}
+            count=problem_status.objects.filter(**search_info,**data_info,status__in=['进行中','待审核','逾期'],date__range=(startime,endtime)).count()
+            data['code']=0
+            data['msg']=""
+            data['count']=count
+            data['data']=list(date)
+            return JsonResponse(data) 
+        else:
+            #获取数据条数
+            date=problem_status.objects.filter(**search_info,**data_info,status__in=['进行中','待审核','逾期'])[s:e].values()
+            data = {}
+            count=problem_status.objects.filter(**search_info,**data_info,status__in=['进行中','待审核','逾期']).count()
+            data['code']=0
+            data['msg']=""
+            data['count']=count
+            data['data']=list(date)
+            return JsonResponse(data) 
     else:
         date=problem_status.objects.filter(**data_info,status__in=['进行中','待审核','逾期'])[s:e].values()
         data = {}
@@ -408,14 +505,37 @@ def pc_track_api(request):
     e=s+limit
     username = request.session.get("username")
     data_info=user_info_hs(username)
-    if(request.GET.get('date')or request.GET.get('level')or request.GET.get('shift')or request.GET.get('uloc')or request.GET.get('status')):
+    if(request.GET.get('workshop')or request.GET.get('worksection')or request.GET.get('team')or request.GET.get('date')or request.GET.get('level')or request.GET.get('shift')or request.GET.get('uloc')or request.GET.get('status')):
 
         level=request.GET.get('level')
         shift=request.GET.get('shift')
         uloc=request.GET.get('uloc')
         date=request.GET.get('date')
         status=request.GET.get('status')
+        workshop=request.GET.get('workshop')
+        worksection=request.GET.get('worksection')
+        team=request.GET.get('team')
         search_info=dict()
+
+
+        if workshop:
+            if 'workshop' in data_info :
+                search_info['workshop']=data_info['workshop']
+                del data_info['workshop']
+            else:                
+                search_info['workshop']=workshop
+        if worksection:
+            if 'worksection' in data_info :
+                search_info['worksection']=data_info['worksection']
+                del data_info['worksection']
+            else:
+                search_info['worksection']=worksection
+        if team:
+            if 'team' in data_info :
+                search_info['team']=data_info['team']
+                del data_info['team']
+            else:
+                search_info['team']=team  
         
         if level:
             if 'level' in data_info:                
@@ -431,19 +551,35 @@ def pc_track_api(request):
                 search_info['shift']=shift
         if uloc:
             search_info['uloc']=uloc
-        if date:
-            search_info['date']=date
+
         if status:
             search_info['status']=status
-        #获取数据条数
-        date=problem_status.objects.filter(**search_info,**data_info)[s:e].values()
-        data = {}
-        count=problem_status.objects.filter(**search_info,**data_info).count()
-        data['code']=0
-        data['msg']=""
-        data['count']=count
-        data['data']=list(date)
-        return JsonResponse(data) 
+        if date:
+            #20200514修改为时间范围
+            startime= date[0:10]
+            endtime=date[-10:]
+ 
+            # search_info['date']=date
+            #获取数据条数
+            date=problem_status.objects.filter(**search_info,**data_info,date__range=(startime,endtime))[s:e].values()
+            data = {}
+            count=problem_status.objects.filter(**search_info,**data_info,date__range=(startime,endtime)).count()
+            data['code']=0
+            data['msg']=""
+            data['count']=count
+            data['data']=list(date)
+            return JsonResponse(data)
+        else:
+            #获取数据条数
+            date=problem_status.objects.filter(**search_info,**data_info)[s:e].values()
+            data = {}
+            count=problem_status.objects.filter(**search_info,**data_info).count()
+            data['code']=0
+            data['msg']=""
+            data['count']=count
+            data['data']=list(date)
+            return JsonResponse(data)
+
     else:
         date=problem_status.objects.filter(**data_info)[s:e].values()
         data = {}
@@ -476,3 +612,40 @@ def record_delete_api(request):
         res = {}
         res['res'] = 'ok'
         return JsonResponse(res)
+
+def record__download(request):
+    date=request.GET.get('date')
+
+    startime= date[0:10]
+    endtime=date[-10:] 
+    data = {}
+    record_data=record.objects.filter(date__range=(startime,endtime)).values('workshop','worksection','team','shift','uloc','date','level').order_by('workshop','worksection','team','shift','uloc','date','level').distinct()
+    if  record_data:
+        record_data=list(record_data)
+        # print(record_data)
+        wb = load_workbook("record.xlsx")
+        wb1 = wb.active
+        for inx,val in enumerate(record_data):
+            wb1.cell(row=inx+2,column=1).value=inx+1
+            wb1.cell(row=inx+2,column=2).value=val['workshop']
+            wb1.cell(row=inx+2,column=3).value=val['worksection']
+            wb1.cell(row=inx+2,column=4).value=val['team']
+            wb1.cell(row=inx+2,column=5).value=val['level']
+            wb1.cell(row=inx+2,column=6).value=val['shift']
+            wb1.cell(row=inx+2,column=7).value=val['uloc']
+            wb1.cell(row=inx+2,column=8).value=val['date']
+        now_time = time.strftime("%Y%m%d%H%M%S", time.localtime())    
+        wb.save("./download/"+now_time+".xlsx")#保存
+        data['res']='ok'
+        # file=open('./download/'+now_time+'.xlsx','rb')
+        file=open('./download/'+now_time+'.xlsx','rb')
+        response =FileResponse(file)
+        response['Content-Type']='application/octet-stream'
+        response['Content-Disposition']='attachment;filename="record.xlsx"'
+        print(response)
+        return response
+    else:
+        data['res']='no'
+        return JsonResponse(data)
+
+

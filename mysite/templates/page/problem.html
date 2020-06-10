@@ -19,9 +19,25 @@
         <div class="layuimini-main">
 
             <div class="demoTable">
+                车间：
+                <div class="layui-inline">
+                  <input class="layui-input" name="id" id="demoReload11" autocomplete="off">
+                </div>
+                工段：
+                <div class="layui-inline">
+                  <input class="layui-input" name="id" id="demoReload12" autocomplete="off">
+                </div>
+                班组：
+                <div class="layui-inline">
+                  <input class="layui-input" name="id" id="demoReload13" autocomplete="off">
+                </div>
+
+
+
+                
                 日期：
                 <div class="layui-inline">
-                    <input class="layui-input" name="date" id="demoReload1" autocomplete="off" placeholder="yyyy-MM-dd">
+                    <input class="layui-input" name="date" id="demoReload1" autocomplete="off" placeholder=" - ">
                 </div>
                 工位：
                 <div class="layui-inline">
@@ -305,6 +321,7 @@
 
                     laydate.render({
                         elem: '#demoReload1',
+                        range:true
                     });
 
 
@@ -314,6 +331,10 @@
                     var $ = layui.$,
                         active = {
                             reload: function () {
+                                var workshop = $('#demoReload11');
+                                var worksection = $('#demoReload12');
+                                var team = $('#demoReload13');
+
                                 var date = $('#demoReload1');
                                 var level = $('#demoReload2');
                                 var shift = $('#demoReload3');
@@ -326,6 +347,9 @@
                                         curr: 1 //重新从第 1 页开始
                                     },
                                     where: {
+                                        workshop: workshop.val(),
+                                        worksection: worksection.val(),
+                                        team: team.val(),
                                         date: date.val(),
                                         level: level.val(),
                                         shift: shift.val(),

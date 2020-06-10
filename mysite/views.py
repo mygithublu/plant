@@ -33,10 +33,20 @@ def record(request):
 def items(request):
     username = request.session.get("username")
     if username:
+        ##20200514取消班组长以上修改点检项目的权限，设定为Z002
+        # user_permission={}
+        # user_level=zzuser.objects.filter(username=username).values('level')
+        # user_permission['user_permission']=user_level[0]['level']
+
+        #前端不变，只改变后端
         user_permission={}
-        user_level=zzuser.objects.filter(username=username).values('level')
-        user_permission['user_permission']=user_level[0]['level']
+        user_list=['Z001','Z002','Z003','Z004','Z005','Z006','Z007','Z008','Z009','Z010']
+        if (username in user_list):
+            user_permission['user_permission']='工段长'
+        else:
+            user_permission['user_permission']='班组长'        
         return render(request,'page/items.html',user_permission)
+        
     else:
         return redirect('/login/')
 

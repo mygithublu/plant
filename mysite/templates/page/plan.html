@@ -56,7 +56,7 @@
 
         计划：
         <div class="layui-inline">
-          <input class="layui-input" name="id" id="demoReload7" autocomplete="off" placeholder="YYYY-MM-DD">
+          <input class="layui-input" name="id" id="demoReload7" autocomplete="off" placeholder=" - ">
         </div>
 
         <button class="layui-btn" data-type="reload">搜索</button>
@@ -93,7 +93,8 @@
           var upload = layui.upload;
           var form = layui.form;
           laydate.render({
-            elem: '#demoReload7'
+            elem: '#demoReload7',
+            range: true
           });
 
 
@@ -596,7 +597,7 @@
               <select name="level" lay-verify="required">
                 <option value="班组长">班组长</option>
                 <option value="工段长">工段长</option>
-                <option value="生产经理">生产经理</option>
+                <option value="值班长">值班长</option>
               </select>
             </div>
           </div>

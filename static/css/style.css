@@ -7,7 +7,7 @@
     opacity: 0;
     width: 35px;
     height: 35px;
-    left: 510px;
+    left: 610px;
     top: 80px;
 }
 
@@ -18,7 +18,7 @@
     opacity: 0;
     width: 35px;
     height: 35px;
-    left: 510px;
+    left: 610px;
     top: 80px;
 }
 
@@ -26,10 +26,10 @@
     position: absolute;
     background-color:green;
     border-radius: 50%;
-    opacity: 0.5;
+    opacity: 1;
     width: 35px;
     height: 35px;
-    left: 510px;
+    left: 610px;
     top: 80px;
 }
 
@@ -42,7 +42,7 @@
     opacity: 0;
     width: 35px;
     height: 35px;
-    left: 610px;
+    left: 710px;
     top: 80px;
 }
 
@@ -53,7 +53,7 @@
     opacity: 0;
     width: 35px;
     height: 35px;
-    left: 610px;
+    left: 710px;
     top: 80px;
 }
 
@@ -61,10 +61,10 @@
     position: absolute;
     background-color:green;
     border-radius: 50%;
-    opacity: 0.5;
+    opacity: 1;
     width: 35px;
     height: 35px;
-    left: 610px;
+    left: 710px;
     top: 80px;
 }
 
@@ -77,7 +77,7 @@
     opacity: 0;
     width: 35px;
     height: 35px;
-    left: 710px;
+    left: 810px;
     top: 80px;
 }
 
@@ -88,7 +88,7 @@
     opacity: 0;
     width: 35px;
     height: 35px;
-    left: 710px;
+    left: 810px;
     top: 80px;
 }
 
@@ -96,10 +96,10 @@
     position: absolute;
     background-color:green;
     border-radius: 50%;
-    opacity: 0.5;
+    opacity: 1;
     width: 35px;
     height: 35px;
-    left: 710px;
+    left: 810px;
     top: 80px;
 }
 
@@ -112,7 +112,7 @@
     opacity: 0;
     width: 35px;
     height: 35px;
-    left: 810px;
+    left: 910px;
     top: 80px;
 }
 
@@ -123,7 +123,7 @@
     opacity: 0;
     width: 35px;
     height: 35px;
-    left: 810px;
+    left: 910px;
     top: 80px;
 }
 
@@ -131,10 +131,10 @@
     position: absolute;
     background-color:green;
     border-radius: 50%;
-    opacity: 0.5;
+    opacity: 1;
     width: 35px;
     height: 35px;
-    left: 810px;
+    left: 910px;
     top: 80px;
 }
 
@@ -147,7 +147,7 @@
     opacity: 0;
     width: 35px;
     height: 35px;
-    left: 910px;
+    left: 1010px;
     top: 80px;
 }
 
@@ -158,7 +158,7 @@
     opacity: 0;
     width: 35px;
     height: 35px;
-    left: 910px;
+    left: 1010px;
     top: 80px;
 }
 
@@ -166,9 +166,1765 @@
     position: absolute;
     background-color:green;
     border-radius: 50%;
-    opacity: 0.5;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1010px;
+    top: 80px;
+}
+
+
+/* 底盘三T6组 */
+
+.C3T6red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 510px;
+    top: 80px;
+}
+
+.C3T6yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 510px;
+    top: 80px;
+}
+
+.C3T6grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 510px;
+    top: 80px;
+}
+
+/* 底盘三T5组 */
+
+.C3T5red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 410px;
+    top: 80px;
+}
+
+.C3T5yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 410px;
+    top: 80px;
+}
+
+.C3T5grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 410px;
+    top: 80px;
+}
+
+/* 底盘三T4组 */
+
+.C3T4red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 300px;
+    top: 80px;
+}
+
+.C3T4yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 300px;
+    top: 80px;
+}
+
+.C3T4grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 300px;
+    top: 80px;
+}
+
+/* 底盘三T3组 */
+
+.C3T3red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 200px;
+    top: 80px;
+}
+
+.C3T3yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 200px;
+    top: 80px;
+}
+
+.C3T3grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 200px;
+    top: 80px;
+}
+
+/* QC班组 */
+
+.QCred{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1110px;
+    top: 80px;
+}
+
+.QCyellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1110px;
+    top: 80px;
+}
+
+.QCgrren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1110px;
+    top: 80px;
+}
+
+/* 返工四轮定位 */
+
+.FGSLred{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1210px;
+    top: 86px;
+}
+
+.FGSLyellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1210px;
+    top: 86px;
+}
+
+.FGSLgrren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1210px;
+    top: 86px;
+}
+
+/* 底盘三T2组 */
+
+.C3T2red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 200px;
+    top: 180px;
+}
+
+.C3T2yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 200px;
+    top: 180px;
+}
+
+.C3T2grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 200px;
+    top: 180px;
+}
+
+
+/* 底盘三T1组 */
+
+.C3T1red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 280px;
+    top: 180px;
+}
+
+.C3T1yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 280px;
+    top: 180px;
+}
+
+.C3T1grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 280px;
+    top: 180px;
+}
+
+
+/* 底盘二T6组 */
+
+.C2T6red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 370px;
+    top: 180px;
+}
+
+.C2T6yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 370px;
+    top: 180px;
+}
+
+.C2T6grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 370px;
+    top: 180px;
+}
+
+/* 底盘二T5组 */
+
+.C2T5red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 450px;
+    top: 180px;
+}
+
+.C2T5yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 450px;
+    top: 180px;
+}
+
+.C2T5grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 450px;
+    top: 180px;
+}
+
+
+/* 底盘二T4组 */
+
+.C2T4red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 600px;
+    top: 180px;
+}
+
+.C2T4yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 600px;
+    top: 180px;
+}
+
+.C2T4grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 600px;
+    top: 180px;
+}
+
+/* 底盘二T3组 */
+
+.C2T3red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 700px;
+    top: 180px;
+}
+
+.C2T3yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 700px;
+    top: 180px;
+}
+
+.C2T3grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 700px;
+    top: 180px;
+}
+
+/* 底盘二T2组 */
+
+.C2T2red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 800px;
+    top: 180px;
+}
+
+.C2T2yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 800px;
+    top: 180px;
+}
+
+.C2T2grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 800px;
+    top: 180px;
+}
+
+/* 底盘二T1组 */
+
+.C2T1red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 900px;
+    top: 180px;
+}
+
+.C2T1yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 900px;
+    top: 180px;
+}
+
+.C2T1grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 900px;
+    top: 180px;
+}
+
+
+/* 内饰三T3组 */
+
+.T3T3red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 170px;
+    top: 330px;
+}
+
+.T3T3yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 170px;
+    top: 330px;
+}
+
+.T3T3grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 170px;
+    top: 330px;
+}
+
+/* 内饰三T4组 */
+
+.T3T4red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 270px;
+    top: 330px;
+}
+
+.T3T4yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 270px;
+    top: 330px;
+}
+
+.T3T4grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 270px;
+    top: 330px;
+}
+
+/* 内饰三T5组 */
+
+.T3T5red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 370px;
+    top: 330px;
+}
+
+.T3T5yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 370px;
+    top: 330px;
+}
+
+.T3T5grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 370px;
+    top: 330px;
+}
+
+/* 内饰三T6组 */
+
+.T3T6red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 470px;
+    top: 330px;
+}
+
+.T3T6yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 470px;
+    top: 330px;
+}
+
+.T3T6grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 470px;
+    top: 330px;
+}
+
+/* 内饰三T2组 */
+
+.T3T2red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 150px;
+    top: 430px;
+}
+
+.T3T2yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 150px;
+    top: 430px;
+}
+
+.T3T2grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 150px;
+    top: 430px;
+}
+
+/* 内饰三T1组 */
+
+.T3T1red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 250px;
+    top: 430px;
+}
+
+.T3T1yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 250px;
+    top: 430px;
+}
+
+.T3T1grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 250px;
+    top: 430px;
+}
+
+/* 内饰四T1组 */
+
+.T4T1red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 570px;
+    top: 330px;
+}
+
+.T4T1yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 570px;
+    top: 330px;
+}
+
+.T4T1grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 570px;
+    top: 330px;
+}
+
+/* 内饰四T2组 */
+
+.T4T2red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 670px;
+    top: 330px;
+}
+
+.T4T2yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 670px;
+    top: 330px;
+}
+
+.T4T2grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 670px;
+    top: 330px;
+}
+
+/* 内饰四T3组 */
+
+.T4T3red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 800px;
+    top: 330px;
+}
+
+.T4T3yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 800px;
+    top: 330px;
+}
+
+.T4T3grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 800px;
+    top: 330px;
+}
+
+/* 内饰四T4组 */
+
+.T4T4red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 900px;
+    top: 330px;
+}
+
+.T4T4yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 900px;
+    top: 330px;
+}
+
+.T4T4grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 900px;
+    top: 330px;
+}
+
+/* 内饰四T5组 */
+
+.T4T5red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1000px;
+    top: 330px;
+}
+
+.T4T5yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1000px;
+    top: 330px;
+}
+
+.T4T5grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1000px;
+    top: 330px;
+}
+
+/* 内饰四T6组 */
+
+.T4T6red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1130px;
+    top: 330px;
+}
+
+.T4T6yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1130px;
+    top: 330px;
+}
+
+.T4T6grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1130px;
+    top: 330px;
+}
+
+
+/* 内饰二T6组 */
+
+.T2T6red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 350px;
+    top: 430px;
+}
+
+.T2T6yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 350px;
+    top: 430px;
+}
+
+.T2T6grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 350px;
+    top: 430px;
+}
+/* 内饰二T5组 */
+
+.T2T5red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 450px;
+    top: 430px;
+}
+
+.T2T5yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 450px;
+    top: 430px;
+}
+
+.T2T5grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 450px;
+    top: 430px;
+}
+
+/* 内饰二T4组 */
+
+.T2T4red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 550px;
+    top: 430px;
+}
+
+.T2T4yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 550px;
+    top: 430px;
+}
+
+.T2T4grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 550px;
+    top: 430px;
+}
+/* 内饰二T3组 */
+
+.T2T3red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 650px;
+    top: 430px;
+}
+
+.T2T3yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 650px;
+    top: 430px;
+}
+
+.T2T3grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 650px;
+    top: 430px;
+}
+
+/* 内饰二T2组 */
+
+.T2T2red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 750px;
+    top: 430px;
+}
+
+.T2T2yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 750px;
+    top: 430px;
+}
+
+.T2T2grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 750px;
+    top: 430px;
+}
+
+/* 内饰二T1组 */
+
+.T2T1red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 830px;
+    top: 430px;
+}
+
+.T2T1yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 830px;
+    top: 430px;
+}
+
+.T2T1grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 830px;
+    top: 430px;
+}
+
+/* 内饰一T6组 */
+
+.T1T6red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
     width: 35px;
     height: 35px;
     left: 910px;
-    top: 80px;
+    top: 430px;
+}
+
+.T1T6yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 910px;
+    top: 430px;
+}
+
+.T1T6grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 910px;
+    top: 430px;
+}
+
+/* 内饰一T5组 */
+
+.T1T5red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1000px;
+    top: 430px;
+}
+
+.T1T5yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1000px;
+    top: 430px;
+}
+
+.T1T5grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1000px;
+    top: 430px;
+}
+
+/* 内饰一T4组 */
+
+.T1T4red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1100px;
+    top: 430px;
+}
+
+.T1T4yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1100px;
+    top: 430px;
+}
+
+.T1T4grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1100px;
+    top: 430px;
+}
+
+/* 内饰一T3组 */
+
+.T1T3red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1200px;
+    top: 430px;
+}
+
+.T1T3yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1200px;
+    top: 430px;
+}
+
+.T1T3grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1200px;
+    top: 430px;
+}
+
+/* 内饰一T2组 */
+
+.T1T2red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1300px;
+    top: 430px;
+}
+
+.T1T2yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1300px;
+    top: 430px;
+}
+
+.T1T2grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1300px;
+    top: 430px;
+}
+
+/* 内饰一T1组 */
+
+.T1T1red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1400px;
+    top: 430px;
+}
+
+.T1T1yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1400px;
+    top: 430px;
+}
+
+.T1T1grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1400px;
+    top: 430px;
+}
+
+/* 底盘一T2组 */
+
+.C1T2red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1000px;
+    top: 580px;
+}
+
+.C1T2yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1000px;
+    top: 580px;
+}
+
+.C1T2grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1000px;
+    top: 580px;
+}
+
+/* 底盘一T1组 */
+
+.C1T1red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1300px;
+    top: 580px;
+}
+
+.C1T1yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1300px;
+    top: 580px;
+}
+
+.C1T1grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1300px;
+    top: 580px;
+}
+
+
+/* 底盘一T3组 */
+
+.C1T3red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 910px;
+    top: 720PX;
+}
+
+.C1T3yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 910px;
+    top: 720PX;
+}
+
+.C1T3grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 910px;
+    top: 720PX;
+}
+
+/* 底盘一T4组 */
+
+.C1T4red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1000px;
+    top: 720px;
+}
+
+.C1T4yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1000px;
+    top: 720px;
+}
+
+.C1T4grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1000px;
+    top: 720px;
+}
+
+/* 底盘一T5组 */
+
+.C1T5red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1100px;
+    top: 720px;
+}
+
+.C1T5yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1100px;
+    top: 720px;
+}
+
+.C1T5grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1100px;
+    top: 720px;
+}
+
+/* 底盘一T6组 */
+
+.C1T6red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1200px;
+    top: 720px;
+}
+
+.C1T6yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1200px;
+    top: 720px;
+}
+
+.C1T6grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1200px;
+    top: 720px;
+}
+
+/* 底盘一T7组 */
+
+.C1T7red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1300px;
+    top: 720px;
+}
+
+.C1T7yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1300px;
+    top: 720px;
+}
+
+.C1T7grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1300px;
+    top: 720px;
+}
+
+/* 底盘一T8组 */
+
+.C1T8red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1400px;
+    top: 720px;
+}
+
+.C1T8yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 1400px;
+    top: 720px;
+}
+
+.C1T8grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 1400px;
+    top: 720px;
+}
+
+/* 门线T3组 */
+
+.DRT3red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 400px;
+    top: 625px;
+}
+
+.DRT3yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 400px;
+    top: 625px;
+}
+
+.DRT3grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 400px;
+    top: 625px;
+}
+
+/* 门线T4组 */
+
+.DRT4red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 400px;
+    top: 670px;
+}
+
+.DRT4yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 400px;
+    top: 670px;
+}
+
+.DRT4grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 400px;
+    top: 670px;
+}
+
+
+/* 门线T2组 */
+
+.DRT2red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 400px;
+    top: 720px;
+}
+
+.DRT2yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 400px;
+    top: 720px;
+}
+
+.DRT2grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 400px;
+    top: 720px;
+}
+
+/* 门线T1组 */
+
+.DRT1red{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 400px;
+    top: 770px;
+}
+
+.DRT1yellow{
+    position: absolute;
+    background-color:yellow;
+    border-radius: 50%;
+    opacity: 0;
+    width: 35px;
+    height: 35px;
+    left: 400px;
+    top: 770px;
+}
+
+.DRT1grren{
+    position: absolute;
+    background-color:green;
+    border-radius: 50%;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+    left: 400px;
+    top: 770px;
 }

@@ -56,7 +56,7 @@
 
         计划：
         <div class="layui-inline">
-          <input class="layui-input" name="id" id="demoReload7" autocomplete="off" placeholder="YYYY-MM-DD">
+          <input class="layui-input" name="id" id="demoReload7" autocomplete="off" placeholder=" - ">
         </div>
         结果：
         <div class="layui-inline">
@@ -71,6 +71,7 @@
           <input class="layui-input" name="id" id="demoReload10" autocomplete="off">
         </div>
         <button class="layui-btn" data-type="reload">搜索</button>
+        <button id="downtemplates" class="layui-btn layui-btn-normal">下载点检情况</button>
       </div>
 
       <table class="layui-hide" id="test" lay-filter="test"></table>
@@ -96,7 +97,8 @@
           var table = layui.table;
           var laydate = layui.laydate;
           laydate.render({
-            elem: '#demoReload7'
+            elem: '#demoReload7',
+            range: true
           });
 
           table.render({
@@ -112,92 +114,93 @@
             title: '点检记录',
             cols: [
               [{
-                type: 'checkbox',
-                fixed: 'left'
-              }, {
-                field: 'id',
-                title: 'ID',
-                width: 50,
-                hide: true,
-                unresize: true,
-                sort: true
-              }, {
+                  type: 'checkbox',
+                  fixed: 'left'
+                }, {
+                  field: 'id',
+                  title: 'ID',
+                  width: 50,
+                  hide: true,
+                  unresize: true,
+                  sort: true
+                }, {
 
-                title: '序号',
-                width: 80,
-                type: 'numbers',
-                unresize: true,
-                sort: true
-              }, {
-                field: 'workshop',
-                title: '车间',
-                sort: true
-              }, {
-                field: 'worksection',
-                title: '工段',
-                sort: true
-              }, {
-                field: 'team',
-                title: '班组',
-                sort: true
-              }, {
-                field: 'level',
-                title: '层级',
-                sort: true
-              }, {
-                field: 'shift',
-                title: '班次',
-                sort: true
-              }, {
-                field: 'uloc',
-                title: '工位',
-                sort: true
-              }, {
-                field: 'date',
-                title: '计划点检日',
-                sort: true
-              }, {
-                field: 'title',
-                title: '检查项',
-                sort: true
-              },{
-                field: 'title_lb',
-                title: '类别',
-                sort: true
-              },
-              {
-                field: 'title_wd',
-                title: '维度',
-                sort: true
-              },
-              {
-                field: 'title_fl',
-                title: '分类',
-                sort: true
-              },
-              
-              
-               {
-                field: 'res',
-                title: '检查结果',
-                sort: true
-              }, {
-                field: 'reason',
-                title: 'NOK原因',
-                sort: true
-              }, {
-                field: 'res_time',
-                title: '实际检查日',
-                sort: true
-              }, {
-                field: 'username',
-                title: '用户名',
-                sort: true
-              }, {
-                field: 'name',
-                title: '姓名',
-                sort: true
-              }, ]
+                  title: '序号',
+                  width: 80,
+                  type: 'numbers',
+                  unresize: true,
+                  sort: true
+                }, {
+                  field: 'workshop',
+                  title: '车间',
+                  sort: true
+                }, {
+                  field: 'worksection',
+                  title: '工段',
+                  sort: true
+                }, {
+                  field: 'team',
+                  title: '班组',
+                  sort: true
+                }, {
+                  field: 'level',
+                  title: '层级',
+                  sort: true
+                }, {
+                  field: 'shift',
+                  title: '班次',
+                  sort: true
+                }, {
+                  field: 'uloc',
+                  title: '工位',
+                  sort: true
+                }, {
+                  field: 'date',
+                  title: '计划点检日',
+                  sort: true
+                }, {
+                  field: 'title',
+                  title: '检查项',
+                  sort: true
+                }, {
+                  field: 'title_lb',
+                  title: '类别',
+                  sort: true
+                },
+                {
+                  field: 'title_wd',
+                  title: '维度',
+                  sort: true
+                },
+                {
+                  field: 'title_fl',
+                  title: '分类',
+                  sort: true
+                },
+
+
+                {
+                  field: 'res',
+                  title: '检查结果',
+                  sort: true
+                }, {
+                  field: 'reason',
+                  title: 'NOK原因',
+                  sort: true
+                }, {
+                  field: 'res_time',
+                  title: '实际检查日',
+                  sort: true
+                }, {
+                  field: 'username',
+                  title: '用户名',
+                  sort: true
+                }, {
+                  field: 'name',
+                  title: '姓名',
+                  sort: true
+                },
+              ]
             ],
             page: true,
             limit: 15,
@@ -247,6 +250,36 @@
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
           });
+
+
+          $('#downtemplates').on('click', function () {
+            console.log('!!!!!!!');
+
+            var date = $('#demoReload7').val();
+            if (date == '') {
+              layer.msg('请选择日期', {
+                time: 1000
+              }, function () {
+                
+              });
+              return;
+            }
+            else{
+              window.location= "/record__download/?date="+date;
+            //   $.ajax({
+            //   url: "/record__download/?date="+date,
+            //   type: "POST",
+            //   data: {
+            //     date: date
+            //   }
+            // });
+
+            }
+
+
+          });
+
+
 
           //头工具栏事件
           table.on('toolbar(test)', function (obj) {

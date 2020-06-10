@@ -27,3 +27,8 @@ def pc_login_api(request):
         res={}
         res['res']=0
         return JsonResponse(res)        
+
+
+    res={}
+    res['res']=1
+    return JsonResponse(res)

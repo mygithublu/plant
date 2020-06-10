@@ -18,17 +18,17 @@
 <body>
 
     <style>
-        #lay {
-            /* background-image: url('/static/images/bk.jpg');
+        /* #lay {
+            background-image: url('/static/images/bk.jpg');
             background-repeat: no-repeat;
-            /* background-size: 100% 100%; */
-            /* position: absolute;
+            background-size: 100% 100%;
+           position: absolute;
             height: 722px;
             width: 1500px;
             left: 80px;
-            top: 80px; */
+            top: 80px;
             
-        }
+        } */
 
         body {
             width: 100%;
@@ -86,6 +86,292 @@
         C4T5yellow:(i.team=='T5' && i.worksection=='1C4' && i.team_status=='yellow'),
         C4T5grren:(i.team=='T5' && i.worksection=='1C4' && i.team_status=='green') }">
         </div>
+
+
+        <!-- QC -->
+        <div v-for='i in status' :class="{QCred:(i.team=='QC' && i.worksection=='1QC' && i.team_status=='red'),
+        QCyellow:(i.team=='QC' && i.worksection=='1QC' && i.team_status=='yellow'),
+        QCgrren:(i.team=='QC' && i.worksection=='1QC' && i.team_status=='green') }">
+        </div>
+
+
+<!-- 底盘三 -->
+
+        <div v-for='i in status' :class="{C3T6red:(i.team=='T6' && i.worksection=='1C3' && i.team_status=='red'),
+        C3T6yellow:(i.team=='T6' && i.worksection=='1C3' && i.team_status=='yellow'),
+        C3T6grren:(i.team=='T6' && i.worksection=='1C3' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{C3T5red:(i.team=='T5' && i.worksection=='1C3' && i.team_status=='red'),
+        C3T5yellow:(i.team=='T5' && i.worksection=='1C3' && i.team_status=='yellow'),
+        C3T5grren:(i.team=='T5' && i.worksection=='1C3' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{C3T4red:(i.team=='T4' && i.worksection=='1C3' && i.team_status=='red'),
+        C3T4yellow:(i.team=='T4' && i.worksection=='1C3' && i.team_status=='yellow'),
+        C3T4grren:(i.team=='T4' && i.worksection=='1C3' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{C3T3red:(i.team=='T3' && i.worksection=='1C3' && i.team_status=='red'),
+        C3T3yellow:(i.team=='T3' && i.worksection=='1C3' && i.team_status=='yellow'),
+        C3T3grren:(i.team=='T3' && i.worksection=='1C3' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{C3T2red:(i.team=='T2' && i.worksection=='1C3' && i.team_status=='red'),
+        C3T2yellow:(i.team=='T2' && i.worksection=='1C3' && i.team_status=='yellow'),
+        C3T2grren:(i.team=='T2' && i.worksection=='1C3' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{C3T1red:(i.team=='T1' && i.worksection=='1C3' && i.team_status=='red'),
+        C3T1yellow:(i.team=='T1' && i.worksection=='1C3' && i.team_status=='yellow'),
+        C3T1grren:(i.team=='T1' && i.worksection=='1C3' && i.team_status=='green') }">
+        </div>
+
+
+
+        <!-- 返工 -->
+
+        <div v-for='i in status' :class="{FGSLred:(i.team=='四轮定位' && i.worksection=='1返工' && i.team_status=='red'),
+        FGSLyellow:(i.team=='四轮定位' && i.worksection=='1返工' && i.team_status=='yellow'),
+        FGSLgrren:(i.team=='四轮定位' && i.worksection=='1返工' && i.team_status=='green') }">
+        </div>
+        <div v-for='i in status' :class="{FGZGred:(i.team=='转鼓' && i.worksection=='1返工' && i.team_status=='red'),
+        FGZGyellow:(i.team=='转鼓' && i.worksection=='1返工' && i.team_status=='yellow'),
+        FGZGgrren:(i.team=='转鼓' && i.worksection=='1返工' && i.team_status=='green') }">
+        </div>
+
+
+        <!-- 底盘二 -->
+
+        <div v-for='i in status' :class="{C2T6red:(i.team=='T6' && i.worksection=='1C2' && i.team_status=='red'),
+        C2T6yellow:(i.team=='T6' && i.worksection=='1C2' && i.team_status=='yellow'),
+        C2T6grren:(i.team=='T6' && i.worksection=='1C2' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{C2T5red:(i.team=='T5' && i.worksection=='1C2' && i.team_status=='red'),
+        C2T5yellow:(i.team=='T5' && i.worksection=='1C2' && i.team_status=='yellow'),
+        C2T5grren:(i.team=='T5' && i.worksection=='1C2' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{C2T4red:(i.team=='T4' && i.worksection=='1C2' && i.team_status=='red'),
+        C2T4yellow:(i.team=='T4' && i.worksection=='1C2' && i.team_status=='yellow'),
+        C2T4grren:(i.team=='T4' && i.worksection=='1C2' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{C2T3red:(i.team=='T3' && i.worksection=='1C2' && i.team_status=='red'),
+        C2T3yellow:(i.team=='T3' && i.worksection=='1C2' && i.team_status=='yellow'),
+        C2T3grren:(i.team=='T3' && i.worksection=='1C2' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{C2T2red:(i.team=='T2' && i.worksection=='1C2' && i.team_status=='red'),
+        C2T2yellow:(i.team=='T2' && i.worksection=='1C2' && i.team_status=='yellow'),
+        C2T2grren:(i.team=='T2' && i.worksection=='1C2' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{C2T1red:(i.team=='T1' && i.worksection=='1C2' && i.team_status=='red'),
+        C2T1yellow:(i.team=='T1' && i.worksection=='1C2' && i.team_status=='yellow'),
+        C2T1grren:(i.team=='T1' && i.worksection=='1C2' && i.team_status=='green') }">
+        </div>
+
+
+        <!-- 内饰三 -->
+
+        <div v-for='i in status' :class="{T3T3red:(i.team=='T3' && i.worksection=='1T3' && i.team_status=='red'),
+        T3T3yellow:(i.team=='T3' && i.worksection=='1T3' && i.team_status=='yellow'),
+        T3T3grren:(i.team=='T3' && i.worksection=='1T3' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{T3T4red:(i.team=='T4' && i.worksection=='1T3' && i.team_status=='red'),
+        T3T4yellow:(i.team=='T4' && i.worksection=='1T3' && i.team_status=='yellow'),
+        T3T4grren:(i.team=='T4' && i.worksection=='1T3' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{T3T5red:(i.team=='T5' && i.worksection=='1T3' && i.team_status=='red'),
+        T3T5yellow:(i.team=='T5' && i.worksection=='1T3' && i.team_status=='yellow'),
+        T3T5grren:(i.team=='T5' && i.worksection=='1T3' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{T3T6red:(i.team=='T6' && i.worksection=='1T3' && i.team_status=='red'),
+        T3T6yellow:(i.team=='T6' && i.worksection=='1T3' && i.team_status=='yellow'),
+        T3T6grren:(i.team=='T6' && i.worksection=='1T3' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{T3T2red:(i.team=='T2' && i.worksection=='1T3' && i.team_status=='red'),
+        T3T2yellow:(i.team=='T2' && i.worksection=='1T3' && i.team_status=='yellow'),
+        T3T2grren:(i.team=='T2' && i.worksection=='1T3' && i.team_status=='green') }">
+        </div>
+
+        <div v-for='i in status' :class="{T3T1red:(i.team=='T1' && i.worksection=='1T3' && i.team_status=='red'),
+        T3T1yellow:(i.team=='T1' && i.worksection=='1T3' && i.team_status=='yellow'),
+        T3T1grren:(i.team=='T1' && i.worksection=='1T3' && i.team_status=='green') }">
+        </div>
+
+         <!-- 内饰四 -->
+
+         <div v-for='i in status' :class="{T4T1red:(i.team=='T1' && i.worksection=='1T4' && i.team_status=='red'),
+         T4T1yellow:(i.team=='T1' && i.worksection=='1T4' && i.team_status=='yellow'),
+         T4T1grren:(i.team=='T1' && i.worksection=='1T4' && i.team_status=='green') }">
+         </div>
+ 
+         <div v-for='i in status' :class="{T4T2red:(i.team=='T2' && i.worksection=='1T4' && i.team_status=='red'),
+         T4T2yellow:(i.team=='T2' && i.worksection=='1T4' && i.team_status=='yellow'),
+         T4T2grren:(i.team=='T2' && i.worksection=='1T4' && i.team_status=='green') }">
+         </div>
+ 
+         <div v-for='i in status' :class="{T4T3red:(i.team=='T3' && i.worksection=='1T4' && i.team_status=='red'),
+         T4T3yellow:(i.team=='T3' && i.worksection=='1T4' && i.team_status=='yellow'),
+         T4T3grren:(i.team=='T3' && i.worksection=='1T4' && i.team_status=='green') }">
+         </div>
+ 
+         <div v-for='i in status' :class="{T4T4red:(i.team=='T4' && i.worksection=='1T4' && i.team_status=='red'),
+         T4T4yellow:(i.team=='T4' && i.worksection=='1T4' && i.team_status=='yellow'),
+         T4T4grren:(i.team=='T4' && i.worksection=='1T4' && i.team_status=='green') }">
+         </div>
+ 
+         <div v-for='i in status' :class="{T4T5red:(i.team=='T5' && i.worksection=='1T4' && i.team_status=='red'),
+         T4T5yellow:(i.team=='T5' && i.worksection=='1T4' && i.team_status=='yellow'),
+         T4T5grren:(i.team=='T5' && i.worksection=='1T4' && i.team_status=='green') }">
+         </div>
+ 
+         <div v-for='i in status' :class="{T4T6red:(i.team=='T6' && i.worksection=='1T4' && i.team_status=='red'),
+         T4T6yellow:(i.team=='T6' && i.worksection=='1T4' && i.team_status=='yellow'),
+         T4T6grren:(i.team=='T6' && i.worksection=='1T4' && i.team_status=='green') }">
+         </div>
+
+         <!-- 内饰二 -->
+
+         <div v-for='i in status' :class="{T2T1red:(i.team=='T1' && i.worksection=='1T2' && i.team_status=='red'),
+         T2T1yellow:(i.team=='T1' && i.worksection=='1T2' && i.team_status=='yellow'),
+         T2T1grren:(i.team=='T1' && i.worksection=='1T2' && i.team_status=='green') }">
+         </div>
+ 
+         <div v-for='i in status' :class="{T2T2red:(i.team=='T2' && i.worksection=='1T2' && i.team_status=='red'),
+         T2T2yellow:(i.team=='T2' && i.worksection=='1T2' && i.team_status=='yellow'),
+         T2T2grren:(i.team=='T2' && i.worksection=='1T2' && i.team_status=='green') }">
+         </div>
+ 
+         <div v-for='i in status' :class="{T2T3red:(i.team=='T3' && i.worksection=='1T2' && i.team_status=='red'),
+         T2T3yellow:(i.team=='T3' && i.worksection=='1T2' && i.team_status=='yellow'),
+         T2T3grren:(i.team=='T3' && i.worksection=='1T2' && i.team_status=='green') }">
+         </div>
+ 
+         <div v-for='i in status' :class="{T2T4red:(i.team=='T4' && i.worksection=='1T2' && i.team_status=='red'),
+         T2T4yellow:(i.team=='T4' && i.worksection=='1T2' && i.team_status=='yellow'),
+         T2T4grren:(i.team=='T4' && i.worksection=='1T2' && i.team_status=='green') }">
+         </div>
+ 
+         <div v-for='i in status' :class="{T2T5red:(i.team=='T5' && i.worksection=='1T2' && i.team_status=='red'),
+         T2T5yellow:(i.team=='T5' && i.worksection=='1T2' && i.team_status=='yellow'),
+         T2T5grren:(i.team=='T5' && i.worksection=='1T2' && i.team_status=='green') }">
+         </div>
+ 
+         <div v-for='i in status' :class="{T2T6red:(i.team=='T6' && i.worksection=='1T2' && i.team_status=='red'),
+         T2T6yellow:(i.team=='T6' && i.worksection=='1T2' && i.team_status=='yellow'),
+         T2T6grren:(i.team=='T6' && i.worksection=='1T2' && i.team_status=='green') }">
+         </div>
+
+          <!-- 内饰一 -->
+
+          <div v-for='i in status' :class="{T1T1red:(i.team=='T1' && i.worksection=='1T1' && i.team_status=='red'),
+          T1T1yellow:(i.team=='T1' && i.worksection=='1T1' && i.team_status=='yellow'),
+          T1T1grren:(i.team=='T1' && i.worksection=='1T1' && i.team_status=='green') }">
+          </div>
+  
+          <div v-for='i in status' :class="{T1T2red:(i.team=='T2' && i.worksection=='1T1' && i.team_status=='red'),
+          T1T2yellow:(i.team=='T2' && i.worksection=='1T1' && i.team_status=='yellow'),
+          T1T2grren:(i.team=='T2' && i.worksection=='1T1' && i.team_status=='green') }">
+          </div>
+  
+          <div v-for='i in status' :class="{T1T3red:(i.team=='T3' && i.worksection=='1T1' && i.team_status=='red'),
+          T1T3yellow:(i.team=='T3' && i.worksection=='1T1' && i.team_status=='yellow'),
+          T1T3grren:(i.team=='T3' && i.worksection=='1T1' && i.team_status=='green') }">
+          </div>
+  
+          <div v-for='i in status' :class="{T1T4red:(i.team=='T4' && i.worksection=='1T1' && i.team_status=='red'),
+          T1T4yellow:(i.team=='T4' && i.worksection=='1T1' && i.team_status=='yellow'),
+          T1T4grren:(i.team=='T4' && i.worksection=='1T1' && i.team_status=='green') }">
+          </div>
+  
+          <div v-for='i in status' :class="{T1T5red:(i.team=='T5' && i.worksection=='1T1' && i.team_status=='red'),
+          T1T5yellow:(i.team=='T5' && i.worksection=='1T1' && i.team_status=='yellow'),
+          T1T5grren:(i.team=='T5' && i.worksection=='1T1' && i.team_status=='green') }">
+          </div>
+  
+          <div v-for='i in status' :class="{T1T6red:(i.team=='T6' && i.worksection=='1T1' && i.team_status=='red'),
+          T1T6yellow:(i.team=='T6' && i.worksection=='1T1' && i.team_status=='yellow'),
+          T1T6grren:(i.team=='T6' && i.worksection=='1T1' && i.team_status=='green') }">
+          </div>
+
+            <!-- 底盘一 -->
+
+          <div v-for='i in status' :class="{C1T1red:(i.team=='T1' && i.worksection=='1C1' && i.team_status=='red'),
+          C1T1yellow:(i.team=='T1' && i.worksection=='1C1' && i.team_status=='yellow'),
+          C1T1grren:(i.team=='T1' && i.worksection=='1C1' && i.team_status=='green') }">
+          </div>
+  
+          <div v-for='i in status' :class="{C1T2red:(i.team=='T2' && i.worksection=='1C1' && i.team_status=='red'),
+          C1T2yellow:(i.team=='T2' && i.worksection=='1C1' && i.team_status=='yellow'),
+          C1T2grren:(i.team=='T2' && i.worksection=='1C1' && i.team_status=='green') }">
+          </div>
+  
+          <div v-for='i in status' :class="{C1T3red:(i.team=='T3' && i.worksection=='1C1' && i.team_status=='red'),
+          C1T3yellow:(i.team=='T3' && i.worksection=='1C1' && i.team_status=='yellow'),
+          C1T3grren:(i.team=='T3' && i.worksection=='1C1' && i.team_status=='green') }">
+          </div>
+  
+          <div v-for='i in status' :class="{C1T4red:(i.team=='T4' && i.worksection=='1C1' && i.team_status=='red'),
+          C1T4yellow:(i.team=='T4' && i.worksection=='1T1' && i.team_status=='yellow'),
+          C1T4grren:(i.team=='T4' && i.worksection=='1T1' && i.team_status=='green') }">
+          </div>
+  
+          <div v-for='i in status' :class="{C1T5red:(i.team=='T5' && i.worksection=='1C1' && i.team_status=='red'),
+          C1T5yellow:(i.team=='T5' && i.worksection=='1T1' && i.team_status=='yellow'),
+          C1T5grren:(i.team=='T5' && i.worksection=='1T1' && i.team_status=='green') }">
+          </div>
+  
+          <div v-for='i in status' :class="{C1T6red:(i.team=='T6' && i.worksection=='1C1' && i.team_status=='red'),
+          C1T6yellow:(i.team=='T6' && i.worksection=='1T1' && i.team_status=='yellow'),
+          C1T6grren:(i.team=='T6' && i.worksection=='1T1' && i.team_status=='green') }">
+          </div>
+
+          <div v-for='i in status' :class="{C1T7red:(i.team=='T7' && i.worksection=='1C1' && i.team_status=='red'),
+          C1T7yellow:(i.team=='T7' && i.worksection=='1T1' && i.team_status=='yellow'),
+          C1T7grren:(i.team=='T7' && i.worksection=='1T1' && i.team_status=='green') }">
+          </div>
+  
+          <div v-for='i in status' :class="{C1T8red:(i.team=='T8' && i.worksection=='1C1' && i.team_status=='red'),
+          C1T8yellow:(i.team=='T8' && i.worksection=='1T1' && i.team_status=='yellow'),
+          C1T8grren:(i.team=='T8' && i.worksection=='1T1' && i.team_status=='green') }">
+          </div>
+
+           <!-- 门线 -->
+
+           <div v-for='i in status' :class="{DRT1red:(i.team=='T1' && i.worksection=='1DR' && i.team_status=='red'),
+           DRT1yellow:(i.team=='T1' && i.worksection=='1DR' && i.team_status=='yellow'),
+           DRT1grren:(i.team=='T1' && i.worksection=='1DR' && i.team_status=='green') }">
+           </div>
+   
+           <div v-for='i in status' :class="{DRT2red:(i.team=='T2' && i.worksection=='1DR' && i.team_status=='red'),
+           DRT2yellow:(i.team=='T2' && i.worksection=='1DR' && i.team_status=='yellow'),
+           DRT2grren:(i.team=='T2' && i.worksection=='1DR' && i.team_status=='green') }">
+           </div>
+   
+           <div v-for='i in status' :class="{DRT3red:(i.team=='T3' && i.worksection=='1DR' && i.team_status=='red'),
+           DRT3yellow:(i.team=='T3' && i.worksection=='1DR' && i.team_status=='yellow'),
+           DRT3grren:(i.team=='T3' && i.worksection=='1DR' && i.team_status=='green') }">
+           </div>
+   
+           <div v-for='i in status' :class="{DRT4red:(i.team=='T4' && i.worksection=='1DR' && i.team_status=='red'),
+           DRT4yellow:(i.team=='T4' && i.worksection=='1DR' && i.team_status=='yellow'),
+           DRT4grren:(i.team=='T4' && i.worksection=='1DR' && i.team_status=='green') }">
+           </div>
+   
+
+
+
+
+
+
 
 
     </div>
@@ -146,35 +432,19 @@
 
 
                         });
-                    }, 5000)
+                    }, 300000)
                     setInterval(function () {
                         //left=200px(原始位置)-width/2
                         //top=200px(原始位置)-height/2
                         //内饰一T1班组
 
-                        $(".T1T1").animate({
-                            width: "40px",
-                            height: "40px",
-                            left: "1350px",
-                            top: "345px",
-                            opacity: 1
-
-                        }, 500);
-                        $(".T1T1").animate({
-                            width: "12px",
-                            height: "12px",
-                            left: "1352.5px",
-                            top: "350px",
-                            opacity: 1,
-
-                        }, 500);
 
                         //底盘四T1班组
 
                         $(".C4T1red").animate({
                             width: "40px",
                             height: "40px",
-                            left: "510px",
+                            left: "610px",
                             top: "76px",
                             opacity: 1
 
@@ -182,7 +452,7 @@
                         $(".C4T1red").animate({
                             width: "12px",
                             height: "12px",
-                            left: "524px",
+                            left: "610px",
                             top: "90px",
                             opacity: 1,
 
@@ -191,7 +461,7 @@
                         $(".C4T1yellow").animate({
                             width: "40px",
                             height: "40px",
-                            left: "510px",
+                            left: "610px",
                             top: "76px",
                             opacity: 1
 
@@ -199,7 +469,7 @@
                         $(".C4T1yellow").animate({
                             width: "12px",
                             height: "12px",
-                            left: "524px",
+                            left: "610px",
                             top: "90px",
                             opacity: 1,
 
@@ -209,7 +479,7 @@
                         $(".C4T2red").animate({
                             width: "40px",
                             height: "40px",
-                            left: "610px",
+                            left: "710px",
                             top: "76px",
                             opacity: 1
 
@@ -217,7 +487,7 @@
                         $(".C4T2red").animate({
                             width: "12px",
                             height: "12px",
-                            left: "624px",
+                            left: "710px",
                             top: "90px",
                             opacity: 1,
 
@@ -226,7 +496,7 @@
                         $(".C4T2yellow").animate({
                             width: "40px",
                             height: "40px",
-                            left: "610px",
+                            left: "710px",
                             top: "76px",
                             opacity: 1
 
@@ -234,7 +504,7 @@
                         $(".C4T2yellow").animate({
                             width: "12px",
                             height: "12px",
-                            left: "624px",
+                            left: "710px",
                             top: "90px",
                             opacity: 1,
 
@@ -246,7 +516,7 @@
                         $(".C4T3red").animate({
                             width: "40px",
                             height: "40px",
-                            left: "710px",
+                            left: "810px",
                             top: "76px",
                             opacity: 1
 
@@ -254,7 +524,7 @@
                         $(".C4T3red").animate({
                             width: "12px",
                             height: "12px",
-                            left: "724px",
+                            left: "810px",
                             top: "90px",
                             opacity: 1,
 
@@ -263,7 +533,7 @@
                         $(".C4T3yellow").animate({
                             width: "40px",
                             height: "40px",
-                            left: "710px",
+                            left: "810px",
                             top: "76px",
                             opacity: 1
 
@@ -271,25 +541,19 @@
                         $(".C4T3yellow").animate({
                             width: "12px",
                             height: "12px",
-                            left: "724px",
+                            left: "810px",
                             top: "90px",
                             opacity: 1,
 
                         }, 500);
 
-                        // $(".C4T3grren").animate({
-                        //     width: '35px',
-                        //     height: '35px',
-                        //     left: '710px',
-                        //     top: '80px',
-                        //     opacity: 1,
-                        // }, 500);
+                       
 
                         //底盘四T4班组
                         $(".C4T4red").animate({
                             width: "40px",
                             height: "40px",
-                            left: "810px",
+                            left: "910px",
                             top: "76px",
                             opacity: 1
 
@@ -297,7 +561,7 @@
                         $(".C4T4red").animate({
                             width: "12px",
                             height: "12px",
-                            left: "824px",
+                            left: "910px",
                             top: "90px",
                             opacity: 1,
 
@@ -306,7 +570,7 @@
                         $(".C4T4yellow").animate({
                             width: "40px",
                             height: "40px",
-                            left: "810px",
+                            left: "910px",
                             top: "76px",
                             opacity: 1
 
@@ -314,7 +578,7 @@
                         $(".C4T4yellow").animate({
                             width: "12px",
                             height: "12px",
-                            left: "824px",
+                            left: "910px",
                             top: "90px",
                             opacity: 1,
 
@@ -324,7 +588,7 @@
                         $(".C4T5red").animate({
                             width: "40px",
                             height: "40px",
-                            left: "910px",
+                            left: "1010px",
                             top: "76px",
                             opacity: 1
 
@@ -332,7 +596,7 @@
                         $(".C4T5red").animate({
                             width: "12px",
                             height: "12px",
-                            left: "924px",
+                            left: "1010px",
                             top: "90px",
                             opacity: 1,
 
@@ -341,7 +605,7 @@
                         $(".C4T5yellow").animate({
                             width: "40px",
                             height: "40px",
-                            left: "910px",
+                            left: "1010px",
                             top: "76px",
                             opacity: 1
 
@@ -349,11 +613,1735 @@
                         $(".C4T5yellow").animate({
                             width: "12px",
                             height: "12px",
-                            left: "924px",
+                            left: "1010px",
                             top: "90px",
                             opacity: 1,
 
                         }, 500);
+
+                    //底盘三T6班组
+                        $(".C3T6red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "510px",
+                            top: "76px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C3T6red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "510px",
+                            top: "90px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C3T6yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "510px",
+                            top: "76px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C3T6yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "510px",
+                            top: "90px",
+                            opacity: 1,
+
+                        }, 500);
+
+                    //底盘三T5班组
+                    $(".C3T5red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "410px",
+                            top: "76px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C3T5red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "410px",
+                            top: "90px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C3T5yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "410px",
+                            top: "76px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C3T5yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "410px",
+                            top: "90px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        //底盘三T4班组
+                        $(".C3T4red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "300px",
+                            top: "76px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C3T4red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "300px",
+                            top: "90px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C3T4yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "300px",
+                            top: "76px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C3T4yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "300px",
+                            top: "90px",
+                            opacity: 1,
+
+                        }, 500);
+
+
+                        //底盘三T3班组
+                        $(".C3T3red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "200px",
+                            top: "76px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C3T3red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "200px",
+                            top: "90px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C3T3yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "200px",
+                            top: "76px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C3T3yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "200px",
+                            top: "90px",
+                            opacity: 1,
+
+                        }, 500);
+
+                             //QC班组
+                        $(".QCred").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1110px",
+                            top: "76px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".QCred").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1110px",
+                            top: "90px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".QCyellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1110px",
+                            top: "76px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".QCyellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1110px",
+                            top: "90px",
+                            opacity: 1,
+
+                        }, 500);
+
+
+                                //返工四轮定位
+                        $(".FGSLred").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1210px",
+                            top: "86px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".FGSLred").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1210px",
+                            top: "86px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".FGSLyellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1210px",
+                            top: "86px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".FGSLyellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1210px",
+                            top: "86px",
+                            opacity: 1,
+
+                        }, 500);
+                         //底盘三T2班组
+                         $(".C3T2red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "200px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C3T2red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "200px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C3T2yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "200px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C3T2yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "200px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+                         //底盘三T1班组
+                         $(".C3T1red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "280px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C3T1red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "280px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C3T1yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "280px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C3T1yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "280px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+                         //底盘二T6班组
+                         $(".C2T6red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "370px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C2T6red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "370px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C2T6yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "370px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C2T6yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "370px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+
+                         //底盘二T5班组
+                         $(".C2T5red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "450px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C2T5red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "450px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C2T5yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "450px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C2T5yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "450px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        //底盘二T4班组
+                        $(".C2T4red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "600px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C2T4red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "600px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C2T4yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "600px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C2T4yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "600px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+                          //底盘二T3班组
+                          $(".C2T3red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "700px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C2T3red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "700px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C2T3yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "700px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C2T3yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "700px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+                         //底盘二T2班组
+                         $(".C2T2red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "800px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C2T2red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "800px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C2T2yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "800px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C2T2yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "800px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+
+                         //底盘二T1班组
+                         $(".C2T1red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "900px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C2T1red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "900px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C2T1yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "900px",
+                            top: "176px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C2T1yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "900px",
+                            top: "190px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰三T3班组
+                        $(".T3T3red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "170px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T3T3red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "170px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T3T3yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "170px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T3T3yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "170px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰三T4班组
+                        $(".T3T4red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "270px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T3T4red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "270px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T3T4yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "270px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T3T4yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "270px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰三T5班组
+                        $(".T3T5red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "370px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T3T5red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "370px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T3T5yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "370px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T3T5yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "370px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰三T6班组
+                        $(".T3T6red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "470px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T3T6red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "470px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T3T6yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "470px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T3T6yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "470px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+
+                         //内饰三T2班组
+                         $(".T3T2red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "150px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T3T2red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "150px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T3T2yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "150px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T3T2yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "150px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        //内饰三T1班组
+                        $(".T3T1red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "250px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T3T1red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "250px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T3T1yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "250px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T3T1yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "250px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        //内饰四T1班组
+                        $(".T4T1red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "570px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T4T1red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "570px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T4T1yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "570px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T4T1yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "570px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        //内饰四T2班组
+                        $(".T4T2red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "670px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T4T2red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "670px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T4T2yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "670px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T4T2yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "670px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰四T3班组
+                        $(".T4T3red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "800px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T4T3red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "800px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T4T3yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "800px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T4T3yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "800px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰四T4班组
+                        $(".T4T4red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "900px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T4T4red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "900px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T4T4yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "900px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T4T4yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "900px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰四T5班组
+                        $(".T4T5red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1000px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T4T5red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1000px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T4T5yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1000px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T4T5yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1000px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰四T6班组
+                        $(".T4T6red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1130px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T4T6red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1130px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T4T6yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1130px",
+                            top: "330px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T4T6yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1130px",
+                            top: "330px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰二T6班组
+                        $(".T2T6red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "350px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T2T6red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "350px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T2T6yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "350px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T2T6yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "350px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰二T5班组
+                        $(".T2T5red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "450px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T2T5red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "450px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T2T5yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "450px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T2T5yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "450px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+                         //内饰二T4班组
+                         $(".T2T4red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "550px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T2T4red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "550px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T2T4yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "550px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T2T4yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "550px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰二T3班组
+                        $(".T2T3red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "650px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T2T3red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "650px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T2T3yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "650px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T2T3yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "650px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        //内饰二T2班组
+                        $(".T2T2red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "750px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T2T2red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "750px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T2T2yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "750px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T2T2yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "750px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰二T1班组
+                        $(".T2T1red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "830px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T2T1red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "830px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T2T1yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "830px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T2T1yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "830px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰一T6班组
+                        $(".T1T6red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "910px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T1T6red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "910px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T1T6yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "910px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T1T6yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "910px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        //内饰一T5班组
+                        $(".T1T5red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1000px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T1T5red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1000px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T1T5yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1000px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T1T5yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1000px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        //内饰一T4班组
+                        $(".T1T4red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1100px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T1T4red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1100px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T1T4yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1100px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T1T4yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1100px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰一T3班组
+                        $(".T1T3red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1200px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T1T3red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1200px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T1T3yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1200px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T1T3yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1200px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰一T2班组
+                        $(".T1T2red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1300px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T1T2red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1300px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T1T2yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1300px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T1T2yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1300px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+                        //内饰一T1班组
+                        $(".T1T1red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1400px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T1T1red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1400px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".T1T1yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1400px",
+                            top: "430px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".T1T1yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1400px",
+                            top: "430px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        //底盘一T2班组
+                        $(".C1T2red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1000px",
+                            top: "580px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T2red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1000px",
+                            top: "580px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C1T2yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1000px",
+                            top: "580px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T2yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1000px",
+                            top: "580px",
+                            opacity: 1,
+
+                        }, 500);
+                        //底盘一T1班组
+                        $(".C1T1red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1300px",
+                            top: "580px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T1red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1300px",
+                            top: "580px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C1T1yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1300px",
+                            top: "580px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T1yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1300px",
+                            top: "580px",
+                            opacity: 1,
+
+                        }, 500);
+                         //底盘一T3班组
+                         $(".C1T3red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "910px",
+                            top: "720PX",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T3red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "910px",
+                            top: "720PX",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C1T3yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "910px",
+                            top: "720PX",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T3yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "910px",
+                            top: "720PX",
+                            opacity: 1,
+
+                        }, 500);
+
+                        //底盘一T4班组
+                        $(".C1T4red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1000px",
+                            top: "720PX",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T4red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1000px",
+                            top: "720PX",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C1T4yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1000px",
+                            top: "720PX",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T4yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1000px",
+                            top: "720PX",
+                            opacity: 1,
+
+                        }, 500);
+
+                        //底盘一T5班组
+                        $(".C1T5red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1100px",
+                            top: "720PX",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T5red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1100px",
+                            top: "720PX",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C1T5yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1100px",
+                            top: "720PX",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T5yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1100px",
+                            top: "720PX",
+                            opacity: 1,
+
+                        }, 500);
+                        //底盘一T6班组
+                        $(".C1T6red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1200px",
+                            top: "720px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T6red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1200px",
+                            top: "720px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C1T6yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1200px",
+                            top: "720px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T6yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1200px",
+                            top: "720px",
+                            opacity: 1,
+
+                        }, 500);
+                        //底盘一T7班组
+                        $(".C1T7red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1300px",
+                            top: "720px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T7red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1300px",
+                            top: "720px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C1T7yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1300px",
+                            top: "720px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T7yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1300px",
+                            top: "720px",
+                            opacity: 1,
+
+                        }, 500);
+                        //底盘一T8班组
+                        $(".C1T8red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1400px",
+                            top: "720px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T8red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1400px",
+                            top: "720px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".C1T8yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "1400px",
+                            top: "720px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".C1T8yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "1400px",
+                            top: "720px",
+                            opacity: 1,
+
+                        }, 500);
+                        //门线T3班组
+                        $(".DRT3red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "400px",
+                            top: "625px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".DRT3red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "400px",
+                            top: "625px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".DRT3yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "400px",
+                            top: "625px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".DRT3yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "400px",
+                            top: "625px",
+                            opacity: 1,
+
+                        }, 500);
+                        //门线T4班组
+                        $(".DRT4red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "400px",
+                            top: "670px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".DRT4red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "400px",
+                            top: "670px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".DRT4yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "400px",
+                            top: "670px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".DRT4yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "400px",
+                            top: "670px",
+                            opacity: 1,
+
+                        }, 500);
+                        //门线T2班组
+                        $(".DRT2red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "400px",
+                            top: "720px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".DRT2red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "400px",
+                            top: "720px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".DRT2yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "400px",
+                            top: "720px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".DRT2yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "400px",
+                            top: "720px",
+                            opacity: 1,
+
+                        }, 500);
+                        //门线T1班组
+                        $(".DRT1red").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "400px",
+                            top: "770px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".DRT1red").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "400px",
+                            top: "770px",
+                            opacity: 1,
+
+                        }, 500);
+
+                        $(".DRT1yellow").animate({
+                            width: "40px",
+                            height: "40px",
+                            left: "400px",
+                            top: "770px",
+                            opacity: 1
+
+                        }, 500);
+                        $(".DRT1yellow").animate({
+                            width: "12px",
+                            height: "12px",
+                            left: "400px",
+                            top: "770px",
+                            opacity: 1,
+
+                        }, 500);
+
+
+
 
 
 
