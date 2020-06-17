@@ -79,11 +79,35 @@
         </div>
       </script>
 
-      <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-      </script>
+<script>
 
+var date = new Date();
+                var y = date.getFullYear();
+                var m = date.getMonth()+1;
+                var d = date.getDate();
+                if (m < 10) {
+                    m = "0" + m;
+                }
+                if (d < 10) {
+                    d = "0" + d;
+                }
+                var today = y + '-' + m + '-' + d;               
+                // var tt=date .toLocaleDateString(); //获取当前日期
+                // console.log(tt);
+                // this.select_date = today;
+                // console.log(m);
+</script>
+
+
+      {% verbatim %}
+      <script type="text/html" id="barDemo">
+        
+        {{#  if(d.date >= today){ }}
+        <a id="bianji" class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a id='shanchu' class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+        {{#  } }}
+      </script>
+      {% endverbatim%}
 
       <script>
         layui.use(['table', 'laydate', 'upload', 'form'], function () {
@@ -96,6 +120,9 @@
             elem: '#demoReload7',
             range: true
           });
+
+          
+
 
 
           table.render({
@@ -155,12 +182,13 @@
                 }, {
                   field: 'date',
                   title: '计划点检日',
-                  sort: true
+                  sort: true,
                 }, {
                   fixed: 'right',
                   title: '操作',
                   toolbar: '#barDemo',
-                  width: 120
+                  width: 120,
+
                 }
               ]
             ],
@@ -169,7 +197,7 @@
             limits: [15, 40, 60, 100, 1000, 2000, 3000, 4000],
             even: true,
             size: 'sm',
-            id: 'testReload'
+            id: 'testReload',
           });
 
           //查询重载
@@ -573,6 +601,7 @@
                 <option value="BS1">BS1</option>
                 <option value="PS1">PS1</option>
                 <option value="GA1">GA1</option>
+                <option value="ZPS1">ZPS1</option>
               </select>
             </div>
           </div>
