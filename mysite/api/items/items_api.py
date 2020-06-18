@@ -12,12 +12,13 @@ from django.http import FileResponse #文件下载
 def item_upload_file(request):
     #接收文件到服务器
     myFile = request.FILES.get('myfile', None)         
-    excelFile = open('D:/plant/upload/item/'+ myFile.name, 'wb+')
+    # excelFile = open('D:/plant/upload/item/'+ myFile.name, 'wb+')
+    excelFile = open('./upload/item/'+ myFile.name, 'wb+')
     for chunk in myFile.chunks():
         excelFile.write(chunk)
         excelFile.close()
     #创建用户
-    df=pd.read_excel('D:/plant/upload/item/'+ myFile.name)
+    df=pd.read_excel('./upload/item/'+ myFile.name)
     #替换nan值为空字符串
     df=df.fillna('')
     row=df.shape[0]
@@ -84,7 +85,8 @@ def item_upload_file(request):
 
 #模板下载
 def item_templates_download(request):
-    file=open('D:/plant/templates/items.xlsx','rb')
+    # file=open('D:/plant/templates/items.xlsx','rb')
+    file=open('./templates/items.xlsx','rb')
     response =FileResponse(file)
     response['Content-Type']='application/octet-stream'
     response['Content-Disposition']='attachment;filename="items.xlsx"'

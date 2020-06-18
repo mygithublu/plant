@@ -20,6 +20,7 @@ from mysite.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^$',index),
     url(r'^submit_api/',submit_api),
     url(r'^login_api',login_api),
     url(r'get_title_api/',get_title_api),

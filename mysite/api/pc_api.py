@@ -612,7 +612,7 @@ def record_delete_api(request):
         res = {}
         res['res'] = 'ok'
         return JsonResponse(res)
-
+#下载
 def record__download(request):
     date=request.GET.get('date')
 

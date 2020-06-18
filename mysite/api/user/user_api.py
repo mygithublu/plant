@@ -143,12 +143,12 @@ def user_delete_api(request):
 def user_upload_file(request):
     #接收文件到服务器
     myFile = request.FILES.get('myfile', None)         
-    excelFile = open('D:/plant/upload/user/'+ myFile.name, 'wb+')
+    excelFile = open('./upload/user/'+ myFile.name, 'wb+')
     for chunk in myFile.chunks():
         excelFile.write(chunk)
         excelFile.close()
     #创建用户
-    df=pd.read_excel('D:/plant/upload/user/'+ myFile.name)
+    df=pd.read_excel('./upload/user/'+ myFile.name)
     #替换nan值为空字符串
     df=df.fillna('')
     row=df.shape[0]
@@ -177,7 +177,8 @@ def user_upload_file(request):
 
 
 def user_templates_download(request):
-    file=open('D:/plant/templates/user.xlsx','rb')
+    # file=open('D:/plant/templates/user.xlsx','rb')
+    file=open('./templates/user.xlsx','rb')
     response =FileResponse(file)
     response['Content-Type']='application/octet-stream'
     response['Content-Disposition']='attachment;filename="user.xlsx"'
