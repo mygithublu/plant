@@ -79,6 +79,6 @@ urlpatterns = [
     url(r'^index/track/$',track),
     url(r'pc_track_api',pc_track_api),
     url(r'^edit_problem_api/$',edit_problem_api),
-    url(r'^delete_problem_api$',delete_problem_api),
+    url(r'^delete_problem_api',delete_problem_api),
     url(r'^edit_confirm_api',edit_confirm_api),
 ]

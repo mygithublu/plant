@@ -55,7 +55,8 @@ def items(request):
 def user(request):
 
     username = request.session.get("username")
-    user_list=['Z001','Z002','Z003','Z004','Z005','Z006','Z007','Z008','Z009','Z010']
+    # user_list=['Z001','Z002','Z003','Z004','Z005','Z006','Z007','Z008','Z009','Z010']
+    user_list=['Z001','Z002']
     if (username in user_list):
         return render(request,'page/user.html')
     elif(username):
